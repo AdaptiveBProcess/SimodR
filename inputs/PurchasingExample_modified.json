@@ -1,0 +1,902 @@
+{
+    "arrival_rate": {
+        "dname": "exponentialDistribution",
+        "dparams": {
+            "arg1": 21623.2,
+            "arg2": 0,
+            "mean": 0
+        },
+        "startEventId": "qbp_dfcb7773-acf6-490b-b7d2-19412a822bf8"
+    },
+    "elements_data": [
+        {
+            "arg1": "1156.6",
+            "arg2": "0",
+            "elementid": "node_f28d718e-729f-4768-a25c-1394abf1e2de",
+            "id": "qbp_992e244e-0c94-40fb-9853-8166da5114ef",
+            "mean": "0",
+            "name": "Confirm Purchase Order",
+            "resource": "qbp_77e00515-b19f-4211-90b2-2810f66d9301",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "1097.2",
+            "arg2": "0",
+            "elementid": "node_20c322f5-53c1-4b0b-8b07-313e7f848525",
+            "id": "qbp_9a6b589b-2d8b-43db-8b7e-f9da9d2a59d1",
+            "mean": "0",
+            "name": "Analyze Quotation Comparison Map",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_42c20758-1c5b-4db7-b7a9-2ce773b2c8f8",
+            "id": "qbp_d7627761-e784-4a76-a193-edb679fd0c8a",
+            "mean": "0",
+            "name": "Authorize Supplier's Invoice payment",
+            "resource": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "type": "constantDistribution"
+        },
+        {
+            "arg1": "33544.1",
+            "arg2": "0",
+            "elementid": "node_7fd9c831-2b37-482a-b39e-749496279674",
+            "id": "qbp_fa91f0df-eecb-49fa-8002-ebc17ef46994",
+            "mean": "0",
+            "name": "Settle Conditions With Supplier",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "12049.0",
+            "arg2": "0",
+            "elementid": "node_f5afe460-f42f-4449-844c-54059e9eaf8f",
+            "id": "qbp_2c799417-d3fe-40dd-81b5-baf809d81fd5",
+            "mean": "0",
+            "name": "Create Quotation comparison Map",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "550.3",
+            "arg2": "0",
+            "elementid": "node_39ac59c7-8ab3-419b-b503-05629bd2ac6b",
+            "id": "qbp_0ca390ea-4642-4f20-849f-96af6e7213fc",
+            "mean": "0",
+            "name": "Pay Invoice",
+            "resource": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_e1903a2d-9c6d-42e4-aabd-57f88db130fd",
+            "id": "qbp_da19dbae-c39f-410f-a0b5-48d8b8f5f6ac",
+            "mean": "0",
+            "name": "Choose best option",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "constantDistribution"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_455b5b2a-565c-469b-9330-7da8bd12366e",
+            "id": "qbp_4d2f4c84-61ca-4992-b1e2-bdf44019f38e",
+            "mean": "0",
+            "name": "Send Invoice",
+            "resource": "qbp_77e00515-b19f-4211-90b2-2810f66d9301",
+            "type": "constantDistribution"
+        },
+        {
+            "arg1": "1470.3",
+            "arg2": "0",
+            "elementid": "node_682eba94-884d-4876-9407-90b5da1eac9a",
+            "id": "qbp_f4ebc0b2-a48f-4c4f-86f2-ab3310ff0890",
+            "mean": "0",
+            "name": "Send Request for Quotation to Supplier",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "257.9",
+            "arg2": "0",
+            "elementid": "node_1bb4e0ef-6e74-469c-a782-5851c37285f0",
+            "id": "qbp_cdbd3418-09b3-41f9-b2ae-10a3d9723ae8",
+            "mean": "0",
+            "name": "Release Supplier's Invoice",
+            "resource": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "1620.0",
+            "arg2": "0",
+            "elementid": "node_22506c69-185e-4946-94dd-a11b60938d34",
+            "id": "qbp_4e3b5e4b-7e31-4f26-8e70-5dfc973bc3f8",
+            "mean": "0",
+            "name": "Amend Purchase Requisition",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "87244.8",
+            "arg2": "0",
+            "elementid": "node_3b56d820-b9b4-426a-a419-c4d00c44d29a",
+            "id": "qbp_a749e0a2-821c-40f1-96ef-8baccd5b1901",
+            "mean": "0",
+            "name": "Deliver Goods Services",
+            "resource": "qbp_77e00515-b19f-4211-90b2-2810f66d9301",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "240.0",
+            "arg2": "2520.0",
+            "elementid": "node_aeb7c4c6-86c4-4793-a5e2-de8dfcfffdc5",
+            "id": "qbp_5c977f2f-8154-453c-973b-772444a48de6",
+            "mean": "1560.0",
+            "name": "Analyze Request for Quotation",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "triangularDistribution"
+        },
+        {
+            "arg1": "615.0",
+            "arg2": "0",
+            "elementid": "node_51f26d0e-a017-41c2-9617-5ce1cc16d1c0",
+            "id": "qbp_5f696be0-d432-4649-91f7-c9323c54e3c9",
+            "mean": "0",
+            "name": "Amend Request for Quotation",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_6a6b1658-ceaa-4b9b-935f-0379091460b7",
+            "id": "qbp_8e5dbd61-9b43-47c2-9d3a-3ddaa1982ac9",
+            "mean": "60",
+            "name": "Release Purchase Order",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "constantDistribution"
+        },
+        {
+            "arg1": "1457.1",
+            "arg2": "0",
+            "elementid": "node_e7f4a9d0-fac1-490d-bb45-98cc2b208a79",
+            "id": "qbp_f034d9cd-cc7a-4aee-a1c5-9a1fb3a9b51c",
+            "mean": "0",
+            "name": "Settle Dispute With Supplier",
+            "resource": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "374.2",
+            "arg2": "0",
+            "elementid": "node_e3c02912-8527-4900-bfe1-864ed1dc5ae2",
+            "id": "qbp_15e4bebf-5615-4cef-8932-91db85f2c646",
+            "mean": "0",
+            "name": "Analyze Purchase Requisition",
+            "resource": "qbp_e2f93035-4ad1-472a-9cca-6c1c1ccd20a7",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "1874.5",
+            "arg2": "0",
+            "elementid": "node_3deeeb49-3940-4c1a-a04c-bd05796b87ab",
+            "id": "qbp_3c5302b8-e8fd-4ab2-adb1-a0447ae278e3",
+            "mean": "0",
+            "name": "Create Purchase Requisition",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_5ea0f553-8ceb-438a-a7a1-7d2d23382cf9",
+            "id": "qbp_8a65efaf-0b92-47a5-8bd2-5f202aa263d4",
+            "mean": "60",
+            "name": "Approve Purchase Order for payment",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "constantDistribution"
+        },
+        {
+            "arg1": "121.4",
+            "arg2": "0",
+            "elementid": "node_7438a90c-4f81-44c4-beca-e580d9466ecc",
+            "id": "qbp_a8ced15d-b6dc-4ef0-a6b6-aabb215e0ef2",
+            "mean": "0",
+            "name": "Create Request for Quotation",
+            "resource": "qbp_e2f93035-4ad1-472a-9cca-6c1c1ccd20a7",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "592.4",
+            "arg2": "0",
+            "elementid": "node_7213f05a-9131-44e6-96e0-9f45162ea922",
+            "id": "qbp_7093bb09-a4b1-422b-a58a-e01e8d3cf545",
+            "mean": "0",
+            "name": "Create Purchase Order",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "exponentialDistribution"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_4b9938c5-18d0-4af2-a328-6f5f5b96f570",
+            "id": "qbp_17aa39ff-0c35-4a8d-9345-4aefd5d87ba7",
+            "mean": "0",
+            "name": "End",
+            "resource": "QBP_DEFAULT_RESOURCE",
+            "type": "constantDistribution"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_97996cd3-8ee4-41a7-ac2c-d3b7857c929d",
+            "id": "qbp_dfcb7773-acf6-490b-b7d2-19412a822bf8",
+            "mean": "0",
+            "name": "Start",
+            "resource": "QBP_DEFAULT_RESOURCE",
+            "type": "constantDistribution"
+        }
+    ],
+    "instances": 10,
+    "resource_pool": [
+        {
+            "avg_costxhour": "14",
+            "instances": [],
+            "id": "QBP_DEFAULT_RESOURCE",
+            "name": "SYSTEM",
+            "timetable_id": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "total_amount": "20"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "name": "Alberto Duport",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a071",
+            "name": "Elvira Lores",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a072",
+            "name": "Nico Ojenbeer",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a073",
+            "name": "Fjodor Kowalski",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a074",
+            "name": "Christian Francois",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a075",
+            "name": "Esmana Liubiata",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a076",
+            "name": "Miu Hanwan",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a077",
+            "name": "Anne Olwada",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a078",
+            "name": "Clement Duchot",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a079",
+            "name": "Immanuel Karagianni",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a0710",
+            "name": "Anna Kaufmann",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a0711",
+            "name": "Kim Passa",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a0712",
+            "name": "Tesca Lobes",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a0713",
+            "name": "Penn Osterwalder",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "18",
+            "instances": [],
+            "id": "qbp_77e00515-b19f-4211-90b2-2810f66d9301",
+            "name": "Esmeralda Clay",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "18",
+            "instances": [],
+            "id": "qbp_77e00515-b19f-4211-90b2-2810f66d93011",
+            "name": "Carmen Finacse",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "18",
+            "instances": [],
+            "id": "qbp_77e00515-b19f-4211-90b2-2810f66d93012",
+            "name": "Kiu Kan",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "18",
+            "instances": [],
+            "id": "qbp_77e00515-b19f-4211-90b2-2810f66d93013",
+            "name": "Sean Manney",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "18",
+            "instances": [],
+            "id": "qbp_77e00515-b19f-4211-90b2-2810f66d93014",
+            "name": "Karen Clarens",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "19",
+            "instances": [],
+            "id": "qbp_e2f93035-4ad1-472a-9cca-6c1c1ccd20a7",
+            "name": "Heinz Gutschmidt",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "19",
+            "instances": [],
+            "id": "qbp_e2f93035-4ad1-472a-9cca-6c1c1ccd20a71",
+            "name": "Maris Freeman",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "19",
+            "instances": [],
+            "id": "qbp_e2f93035-4ad1-472a-9cca-6c1c1ccd20a72",
+            "name": "Francis Odell",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "name": "Karel de Groot",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d1",
+            "name": "Francois de Perrier",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "25",
+            "instances": [],
+            "id": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d2",
+            "name": "Magdalena Predutta",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "11",
+            "instances": [],
+            "id": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "name": "Pedro Alvares",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        },
+        {
+            "avg_costxhour": "11",
+            "instances": [],
+            "id": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e1",
+            "name": "Karalda Nimwada",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "1"
+        }
+    ],
+    "rol_user": {
+        "Role 1": [
+            "Alberto Duport",
+            "Elvira Lores",
+            "Nico Ojenbeer",
+            "Fjodor Kowalski",
+            "Christian Francois",
+            "Esmana Liubiata",
+            "Miu Hanwan",
+            "Anne Olwada",
+            "Clement Duchot",
+            "Immanuel Karagianni",
+            "Anna Kaufmann",
+            "Kim Passa",
+            "Tesca Lobes",
+            "Penn Osterwalder"
+        ],
+        "Role 2": [
+            "Esmeralda Clay",
+            "Carmen Finacse",
+            "Kiu Kan",
+            "Sean Manney",
+            "Karen Clarens"
+        ],
+        "Role 3": [
+            "Heinz Gutschmidt",
+            "Maris Freeman",
+            "Francis Odell"
+        ],
+        "Role 4": [
+            "Karel de Groot",
+            "Francois de Perrier",
+            "Magdalena Predutta"
+        ],
+        "Role 5": [
+            "Pedro Alvares",
+            "Karalda Nimwada"
+        ]
+    },
+    "sequences": [
+        {
+            "elementid": "node_e3eace07-20a2-4ed0-976a-809838938928",
+            "gatewayid": "node_dcd0707a-2093-4bad-9d1f-c10d127f0f6e",
+            "out_path_id": "node_682eba94-884d-4876-9407-90b5da1eac9a",
+            "prob": 0.52
+        },
+        {
+            "elementid": "node_03b16477-9112-432e-8bfc-77084717a286",
+            "gatewayid": "node_dcd0707a-2093-4bad-9d1f-c10d127f0f6e",
+            "out_path_id": "node_51f26d0e-a017-41c2-9617-5ce1cc16d1c0",
+            "prob": 0.48
+        },
+        {
+            "elementid": "node_a1fc58df-0237-44a3-9179-69146dd2275e",
+            "gatewayid": "node_06166344-5745-4cd4-a938-0db3da217f40",
+            "out_path_id": "node_e7f4a9d0-fac1-490d-bb45-98cc2b208a79",
+            "prob": 0.18
+        },
+        {
+            "elementid": "node_ff09bcd0-380c-4151-a564-5f8937aa50d8",
+            "gatewayid": "node_06166344-5745-4cd4-a938-0db3da217f40",
+            "out_path_id": "node_25a4675a-c089-4286-8247-8ba7d0f05034",
+            "prob": 0.82
+        },
+        {
+            "elementid": "node_b88d88f5-c88c-4190-a181-f3c852f1032c",
+            "gatewayid": "node_85b36b85-48d7-4ae8-bc85-edc8b7db6fc6",
+            "out_path_id": "node_22506c69-185e-4946-94dd-a11b60938d34",
+            "prob": 0.02
+        },
+        {
+            "elementid": "node_c7448886-af12-4a31-b0d6-da7027f9f036",
+            "gatewayid": "node_85b36b85-48d7-4ae8-bc85-edc8b7db6fc6",
+            "out_path_id": "node_7438a90c-4f81-44c4-beca-e580d9466ecc",
+            "prob": 0.98
+        }
+    ],
+    "start_time": "2011-06-21T01:29:00.000000+00:00",
+    "bpmnId": "proc_201556483",
+    "time_table": [
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "02:00:00.000000+00:00",
+            "to_t": "03:59:00.000000+00:00",
+            "from_w": "MONDAY",
+            "to_w": "MONDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "06:00:00.000000+00:00",
+            "to_t": "14:59:00.000000+00:00",
+            "from_w": "MONDAY",
+            "to_w": "MONDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "16:00:00.000000+00:00",
+            "to_t": "16:59:00.000000+00:00",
+            "from_w": "MONDAY",
+            "to_w": "MONDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "21:00:00.000000+00:00",
+            "to_t": "23:59:00.000000+00:00",
+            "from_w": "MONDAY",
+            "to_w": "MONDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "00:00:00.000000+00:00",
+            "to_t": "06:59:00.000000+00:00",
+            "from_w": "TUESDAY",
+            "to_w": "TUESDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "08:00:00.000000+00:00",
+            "to_t": "14:59:00.000000+00:00",
+            "from_w": "TUESDAY",
+            "to_w": "TUESDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "17:00:00.000000+00:00",
+            "to_t": "23:59:00.000000+00:00",
+            "from_w": "TUESDAY",
+            "to_w": "TUESDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "00:00:00.000000+00:00",
+            "to_t": "02:59:00.000000+00:00",
+            "from_w": "WEDNESDAY",
+            "to_w": "WEDNESDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "04:00:00.000000+00:00",
+            "to_t": "05:59:00.000000+00:00",
+            "from_w": "WEDNESDAY",
+            "to_w": "WEDNESDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "07:00:00.000000+00:00",
+            "to_t": "07:59:00.000000+00:00",
+            "from_w": "WEDNESDAY",
+            "to_w": "WEDNESDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "09:00:00.000000+00:00",
+            "to_t": "12:59:00.000000+00:00",
+            "from_w": "WEDNESDAY",
+            "to_w": "WEDNESDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "15:00:00.000000+00:00",
+            "to_t": "19:59:00.000000+00:00",
+            "from_w": "WEDNESDAY",
+            "to_w": "WEDNESDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "22:00:00.000000+00:00",
+            "to_t": "23:59:00.000000+00:00",
+            "from_w": "WEDNESDAY",
+            "to_w": "WEDNESDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "00:00:00.000000+00:00",
+            "to_t": "01:59:00.000000+00:00",
+            "from_w": "THURSDAY",
+            "to_w": "THURSDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "03:00:00.000000+00:00",
+            "to_t": "06:59:00.000000+00:00",
+            "from_w": "THURSDAY",
+            "to_w": "THURSDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "08:00:00.000000+00:00",
+            "to_t": "13:59:00.000000+00:00",
+            "from_w": "THURSDAY",
+            "to_w": "THURSDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "15:00:00.000000+00:00",
+            "to_t": "15:59:00.000000+00:00",
+            "from_w": "THURSDAY",
+            "to_w": "THURSDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "18:00:00.000000+00:00",
+            "to_t": "18:59:00.000000+00:00",
+            "from_w": "THURSDAY",
+            "to_w": "THURSDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "20:00:00.000000+00:00",
+            "to_t": "20:59:00.000000+00:00",
+            "from_w": "THURSDAY",
+            "to_w": "THURSDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "22:00:00.000000+00:00",
+            "to_t": "22:59:00.000000+00:00",
+            "from_w": "THURSDAY",
+            "to_w": "THURSDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "00:00:00.000000+00:00",
+            "to_t": "00:59:00.000000+00:00",
+            "from_w": "FRIDAY",
+            "to_w": "FRIDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "02:00:00.000000+00:00",
+            "to_t": "05:59:00.000000+00:00",
+            "from_w": "FRIDAY",
+            "to_w": "FRIDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "07:00:00.000000+00:00",
+            "to_t": "07:59:00.000000+00:00",
+            "from_w": "FRIDAY",
+            "to_w": "FRIDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "09:00:00.000000+00:00",
+            "to_t": "17:59:00.000000+00:00",
+            "from_w": "FRIDAY",
+            "to_w": "FRIDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "20:00:00.000000+00:00",
+            "to_t": "20:59:00.000000+00:00",
+            "from_w": "FRIDAY",
+            "to_w": "FRIDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "00:00:00.000000+00:00",
+            "to_t": "00:59:00.000000+00:00",
+            "from_w": "SATURDAY",
+            "to_w": "SATURDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "02:00:00.000000+00:00",
+            "to_t": "03:59:00.000000+00:00",
+            "from_w": "SATURDAY",
+            "to_w": "SATURDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "06:00:00.000000+00:00",
+            "to_t": "06:59:00.000000+00:00",
+            "from_w": "SATURDAY",
+            "to_w": "SATURDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "08:00:00.000000+00:00",
+            "to_t": "09:59:00.000000+00:00",
+            "from_w": "SATURDAY",
+            "to_w": "SATURDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "11:00:00.000000+00:00",
+            "to_t": "17:59:00.000000+00:00",
+            "from_w": "SATURDAY",
+            "to_w": "SATURDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "22:00:00.000000+00:00",
+            "to_t": "22:59:00.000000+00:00",
+            "from_w": "SATURDAY",
+            "to_w": "SATURDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "00:00:00.000000+00:00",
+            "to_t": "01:59:00.000000+00:00",
+            "from_w": "SUNDAY",
+            "to_w": "SUNDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "03:00:00.000000+00:00",
+            "to_t": "04:59:00.000000+00:00",
+            "from_w": "SUNDAY",
+            "to_w": "SUNDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "06:00:00.000000+00:00",
+            "to_t": "08:59:00.000000+00:00",
+            "from_w": "SUNDAY",
+            "to_w": "SUNDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "10:00:00.000000+00:00",
+            "to_t": "10:59:00.000000+00:00",
+            "from_w": "SUNDAY",
+            "to_w": "SUNDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "13:00:00.000000+00:00",
+            "to_t": "16:59:00.000000+00:00",
+            "from_w": "SUNDAY",
+            "to_w": "SUNDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "18:00:00.000000+00:00",
+            "to_t": "21:59:00.000000+00:00",
+            "from_w": "SUNDAY",
+            "to_w": "SUNDAY"
+        },
+        {
+            "id_t": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "default": "true",
+            "name": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "from_t": "18:00:00.000000+00:00",
+            "to_t": "21:59:00.000000+00:00",
+            "from_w": "SUNDAY",
+            "to_w": "SUNDAY"
+        },
+        {
+            "id_t": "QBP_RES_DEFAULT_TIMETABLE",
+            "default": "false",
+            "name": "24/7",
+            "from_t": "00:00:00.000+00:00",
+            "to_t": "23:59:59.999+00:00",
+            "from_w": "MONDAY",
+            "to_w": "SUNDAY"
+        }
+    ]
+}
