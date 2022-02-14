@@ -1,0 +1,618 @@
+{
+    "arrival_rate": {
+        "dname": "EXPONENTIAL",
+        "dparams": {
+            "arg1": 21623.2,
+            "arg2": 0,
+            "mean": 0
+        }
+    },
+    "elements_data": [
+        {
+            "arg1": "1156.6",
+            "arg2": "0",
+            "elementid": "node_f28d718e-729f-4768-a25c-1394abf1e2de",
+            "id": "qbp_992e244e-0c94-40fb-9853-8166da5114ef",
+            "mean": "0",
+            "name": "Confirm Purchase Order",
+            "resource": "qbp_77e00515-b19f-4211-90b2-2810f66d9301",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "1097.2",
+            "arg2": "0",
+            "elementid": "node_20c322f5-53c1-4b0b-8b07-313e7f848525",
+            "id": "qbp_9a6b589b-2d8b-43db-8b7e-f9da9d2a59d1",
+            "mean": "0",
+            "name": "Analyze Quotation Comparison Map",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_42c20758-1c5b-4db7-b7a9-2ce773b2c8f8",
+            "id": "qbp_d7627761-e784-4a76-a193-edb679fd0c8a",
+            "mean": "0",
+            "name": "Authorize Supplier's Invoice payment",
+            "resource": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "type": "FIXED"
+        },
+        {
+            "arg1": "33544.1",
+            "arg2": "0",
+            "elementid": "node_7fd9c831-2b37-482a-b39e-749496279674",
+            "id": "qbp_fa91f0df-eecb-49fa-8002-ebc17ef46994",
+            "mean": "0",
+            "name": "Settle Conditions With Supplier",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "12049.0",
+            "arg2": "0",
+            "elementid": "node_f5afe460-f42f-4449-844c-54059e9eaf8f",
+            "id": "qbp_2c799417-d3fe-40dd-81b5-baf809d81fd5",
+            "mean": "0",
+            "name": "Create Quotation comparison Map",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "550.3",
+            "arg2": "0",
+            "elementid": "node_39ac59c7-8ab3-419b-b503-05629bd2ac6b",
+            "id": "qbp_0ca390ea-4642-4f20-849f-96af6e7213fc",
+            "mean": "0",
+            "name": "Pay Invoice",
+            "resource": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_e1903a2d-9c6d-42e4-aabd-57f88db130fd",
+            "id": "qbp_da19dbae-c39f-410f-a0b5-48d8b8f5f6ac",
+            "mean": "0",
+            "name": "Choose best option",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "FIXED"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_455b5b2a-565c-469b-9330-7da8bd12366e",
+            "id": "qbp_4d2f4c84-61ca-4992-b1e2-bdf44019f38e",
+            "mean": "0",
+            "name": "Send Invoice",
+            "resource": "qbp_77e00515-b19f-4211-90b2-2810f66d9301",
+            "type": "FIXED"
+        },
+        {
+            "arg1": "1470.3",
+            "arg2": "0",
+            "elementid": "node_682eba94-884d-4876-9407-90b5da1eac9a",
+            "id": "qbp_f4ebc0b2-a48f-4c4f-86f2-ab3310ff0890",
+            "mean": "0",
+            "name": "Send Request for Quotation to Supplier",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "257.9",
+            "arg2": "0",
+            "elementid": "node_1bb4e0ef-6e74-469c-a782-5851c37285f0",
+            "id": "qbp_cdbd3418-09b3-41f9-b2ae-10a3d9723ae8",
+            "mean": "0",
+            "name": "Release Supplier's Invoice",
+            "resource": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "1620.0",
+            "arg2": "0",
+            "elementid": "node_22506c69-185e-4946-94dd-a11b60938d34",
+            "id": "qbp_4e3b5e4b-7e31-4f26-8e70-5dfc973bc3f8",
+            "mean": "0",
+            "name": "Amend Purchase Requisition",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "87244.8",
+            "arg2": "0",
+            "elementid": "node_3b56d820-b9b4-426a-a419-c4d00c44d29a",
+            "id": "qbp_a749e0a2-821c-40f1-96ef-8baccd5b1901",
+            "mean": "0",
+            "name": "Deliver Goods Services",
+            "resource": "qbp_77e00515-b19f-4211-90b2-2810f66d9301",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "240.0",
+            "arg2": "2520.0",
+            "elementid": "node_aeb7c4c6-86c4-4793-a5e2-de8dfcfffdc5",
+            "id": "qbp_5c977f2f-8154-453c-973b-772444a48de6",
+            "mean": "1560.0",
+            "name": "Analyze Request for Quotation",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "TRIANGULAR"
+        },
+        {
+            "arg1": "615.0",
+            "arg2": "0",
+            "elementid": "node_51f26d0e-a017-41c2-9617-5ce1cc16d1c0",
+            "id": "qbp_5f696be0-d432-4649-91f7-c9323c54e3c9",
+            "mean": "0",
+            "name": "Amend Request for Quotation",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_6a6b1658-ceaa-4b9b-935f-0379091460b7",
+            "id": "qbp_8e5dbd61-9b43-47c2-9d3a-3ddaa1982ac9",
+            "mean": "60",
+            "name": "Release Purchase Order",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "FIXED"
+        },
+        {
+            "arg1": "1457.1",
+            "arg2": "0",
+            "elementid": "node_e7f4a9d0-fac1-490d-bb45-98cc2b208a79",
+            "id": "qbp_f034d9cd-cc7a-4aee-a1c5-9a1fb3a9b51c",
+            "mean": "0",
+            "name": "Settle Dispute With Supplier",
+            "resource": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "374.2",
+            "arg2": "0",
+            "elementid": "node_e3c02912-8527-4900-bfe1-864ed1dc5ae2",
+            "id": "qbp_15e4bebf-5615-4cef-8932-91db85f2c646",
+            "mean": "0",
+            "name": "Analyze Purchase Requisition",
+            "resource": "qbp_e2f93035-4ad1-472a-9cca-6c1c1ccd20a7",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "1874.5",
+            "arg2": "0",
+            "elementid": "node_3deeeb49-3940-4c1a-a04c-bd05796b87ab",
+            "id": "qbp_3c5302b8-e8fd-4ab2-adb1-a0447ae278e3",
+            "mean": "0",
+            "name": "Create Purchase Requisition",
+            "resource": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_5ea0f553-8ceb-438a-a7a1-7d2d23382cf9",
+            "id": "qbp_8a65efaf-0b92-47a5-8bd2-5f202aa263d4",
+            "mean": "60",
+            "name": "Approve Purchase Order for payment",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "FIXED"
+        },
+        {
+            "arg1": "121.4",
+            "arg2": "0",
+            "elementid": "node_7438a90c-4f81-44c4-beca-e580d9466ecc",
+            "id": "qbp_a8ced15d-b6dc-4ef0-a6b6-aabb215e0ef2",
+            "mean": "0",
+            "name": "Create Request for Quotation",
+            "resource": "qbp_e2f93035-4ad1-472a-9cca-6c1c1ccd20a7",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "592.4",
+            "arg2": "0",
+            "elementid": "node_7213f05a-9131-44e6-96e0-9f45162ea922",
+            "id": "qbp_7093bb09-a4b1-422b-a58a-e01e8d3cf545",
+            "mean": "0",
+            "name": "Create Purchase Order",
+            "resource": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "type": "EXPONENTIAL"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_4b9938c5-18d0-4af2-a328-6f5f5b96f570",
+            "id": "qbp_17aa39ff-0c35-4a8d-9345-4aefd5d87ba7",
+            "mean": "0",
+            "name": "End",
+            "resource": "QBP_DEFAULT_RESOURCE",
+            "type": "FIXED"
+        },
+        {
+            "arg1": "0",
+            "arg2": "0",
+            "elementid": "node_97996cd3-8ee4-41a7-ac2c-d3b7857c929d",
+            "id": "qbp_dfcb7773-acf6-490b-b7d2-19412a822bf8",
+            "mean": "0",
+            "name": "Start",
+            "resource": "QBP_DEFAULT_RESOURCE",
+            "type": "FIXED"
+        }
+    ],
+    "instances": 10,
+    "resource_pool": [
+        {
+            "costxhour": "14",
+            "id": "QBP_DEFAULT_RESOURCE",
+            "name": "SYSTEM",
+            "timetable_id": "Discovered_CASES_ARRIVAL_CALENDAR",
+            "total_amount": "20"
+        },
+        {
+            "costxhour": "25",
+            "id": "qbp_a8f07427-533c-41bc-84fd-13e135b65a07",
+            "name": "Role 1",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "14"
+        },
+        {
+            "costxhour": "18",
+            "id": "qbp_77e00515-b19f-4211-90b2-2810f66d9301",
+            "name": "Role 2",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "5"
+        },
+        {
+            "costxhour": "19",
+            "id": "qbp_e2f93035-4ad1-472a-9cca-6c1c1ccd20a7",
+            "name": "Role 3",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "3"
+        },
+        {
+            "costxhour": "25",
+            "id": "qbp_6a9d9a04-f09d-442f-888c-0c9c4c1ada0d",
+            "name": "Role 4",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "3"
+        },
+        {
+            "costxhour": "11",
+            "id": "qbp_3c6401a5-06b0-48c2-948e-a04d3c384d7e",
+            "name": "Role 5",
+            "timetable_id": "QBP_RES_DEFAULT_TIMETABLE",
+            "total_amount": "2"
+        }
+    ],
+    "rol_user": {
+        "Role 1": [
+            "Alberto Duport",
+            "Elvira Lores",
+            "Nico Ojenbeer",
+            "Fjodor Kowalski",
+            "Christian Francois",
+            "Esmana Liubiata",
+            "Miu Hanwan",
+            "Anne Olwada",
+            "Clement Duchot",
+            "Immanuel Karagianni",
+            "Anna Kaufmann",
+            "Kim Passa",
+            "Tesca Lobes",
+            "Penn Osterwalder"
+        ],
+        "Role 2": [
+            "Esmeralda Clay",
+            "Carmen Finacse",
+            "Kiu Kan",
+            "Sean Manney",
+            "Karen Clarens"
+        ],
+        "Role 3": [
+            "Heinz Gutschmidt",
+            "Maris Freeman",
+            "Francis Odell"
+        ],
+        "Role 4": [
+            "Karel de Groot",
+            "Francois de Perrier",
+            "Magdalena Predutta"
+        ],
+        "Role 5": [
+            "Pedro Alvares",
+            "Karalda Nimwada"
+        ]
+    },
+    "sequences": [
+        {
+            "elementid": "node_e3eace07-20a2-4ed0-976a-809838938928",
+            "gatewayid": "node_dcd0707a-2093-4bad-9d1f-c10d127f0f6e",
+            "out_path_id": "node_682eba94-884d-4876-9407-90b5da1eac9a",
+            "prob": 0.52
+        },
+        {
+            "elementid": "node_03b16477-9112-432e-8bfc-77084717a286",
+            "gatewayid": "node_dcd0707a-2093-4bad-9d1f-c10d127f0f6e",
+            "out_path_id": "node_51f26d0e-a017-41c2-9617-5ce1cc16d1c0",
+            "prob": 0.48
+        },
+        {
+            "elementid": "node_a1fc58df-0237-44a3-9179-69146dd2275e",
+            "gatewayid": "node_06166344-5745-4cd4-a938-0db3da217f40",
+            "out_path_id": "node_e7f4a9d0-fac1-490d-bb45-98cc2b208a79",
+            "prob": 0.18
+        },
+        {
+            "elementid": "node_ff09bcd0-380c-4151-a564-5f8937aa50d8",
+            "gatewayid": "node_06166344-5745-4cd4-a938-0db3da217f40",
+            "out_path_id": "node_25a4675a-c089-4286-8247-8ba7d0f05034",
+            "prob": 0.82
+        },
+        {
+            "elementid": "node_b88d88f5-c88c-4190-a181-f3c852f1032c",
+            "gatewayid": "node_85b36b85-48d7-4ae8-bc85-edc8b7db6fc6",
+            "out_path_id": "node_22506c69-185e-4946-94dd-a11b60938d34",
+            "prob": 0.02
+        },
+        {
+            "elementid": "node_c7448886-af12-4a31-b0d6-da7027f9f036",
+            "gatewayid": "node_85b36b85-48d7-4ae8-bc85-edc8b7db6fc6",
+            "out_path_id": "node_7438a90c-4f81-44c4-beca-e580d9466ecc",
+            "prob": 0.98
+        }
+    ],
+    "start_time": "2011-06-21T01:29:00.000000+00:00",
+    "time_table": {
+        "http://www.qbp-simulator.com/Schema201212:timetables": {
+            "http://www.qbp-simulator.com/Schema201212:timetable": [
+                {
+                    "@default": "true",
+                    "@id": "Discovered_CASES_ARRIVAL_CALENDAR",
+                    "@name": "Discovered_CASES_ARRIVAL_CALENDAR",
+                    "@xmlns": {
+                        "qbp": "http://www.qbp-simulator.com/Schema201212"
+                    },
+                    "http://www.qbp-simulator.com/Schema201212:rules": {
+                        "http://www.qbp-simulator.com/Schema201212:rule": [
+                            {
+                                "@fromTime": "02:00:00.000000+00:00",
+                                "@fromWeekDay": "MONDAY",
+                                "@toTime": "03:59:00.000000+00:00",
+                                "@toWeekDay": "MONDAY"
+                            },
+                            {
+                                "@fromTime": "06:00:00.000000+00:00",
+                                "@fromWeekDay": "MONDAY",
+                                "@toTime": "14:59:00.000000+00:00",
+                                "@toWeekDay": "MONDAY"
+                            },
+                            {
+                                "@fromTime": "16:00:00.000000+00:00",
+                                "@fromWeekDay": "MONDAY",
+                                "@toTime": "16:59:00.000000+00:00",
+                                "@toWeekDay": "MONDAY"
+                            },
+                            {
+                                "@fromTime": "21:00:00.000000+00:00",
+                                "@fromWeekDay": "MONDAY",
+                                "@toTime": "23:59:00.000000+00:00",
+                                "@toWeekDay": "MONDAY"
+                            },
+                            {
+                                "@fromTime": "00:00:00.000000+00:00",
+                                "@fromWeekDay": "TUESDAY",
+                                "@toTime": "06:59:00.000000+00:00",
+                                "@toWeekDay": "TUESDAY"
+                            },
+                            {
+                                "@fromTime": "08:00:00.000000+00:00",
+                                "@fromWeekDay": "TUESDAY",
+                                "@toTime": "14:59:00.000000+00:00",
+                                "@toWeekDay": "TUESDAY"
+                            },
+                            {
+                                "@fromTime": "17:00:00.000000+00:00",
+                                "@fromWeekDay": "TUESDAY",
+                                "@toTime": "23:59:00.000000+00:00",
+                                "@toWeekDay": "TUESDAY"
+                            },
+                            {
+                                "@fromTime": "00:00:00.000000+00:00",
+                                "@fromWeekDay": "WEDNESDAY",
+                                "@toTime": "02:59:00.000000+00:00",
+                                "@toWeekDay": "WEDNESDAY"
+                            },
+                            {
+                                "@fromTime": "04:00:00.000000+00:00",
+                                "@fromWeekDay": "WEDNESDAY",
+                                "@toTime": "05:59:00.000000+00:00",
+                                "@toWeekDay": "WEDNESDAY"
+                            },
+                            {
+                                "@fromTime": "07:00:00.000000+00:00",
+                                "@fromWeekDay": "WEDNESDAY",
+                                "@toTime": "07:59:00.000000+00:00",
+                                "@toWeekDay": "WEDNESDAY"
+                            },
+                            {
+                                "@fromTime": "09:00:00.000000+00:00",
+                                "@fromWeekDay": "WEDNESDAY",
+                                "@toTime": "12:59:00.000000+00:00",
+                                "@toWeekDay": "WEDNESDAY"
+                            },
+                            {
+                                "@fromTime": "15:00:00.000000+00:00",
+                                "@fromWeekDay": "WEDNESDAY",
+                                "@toTime": "19:59:00.000000+00:00",
+                                "@toWeekDay": "WEDNESDAY"
+                            },
+                            {
+                                "@fromTime": "22:00:00.000000+00:00",
+                                "@fromWeekDay": "WEDNESDAY",
+                                "@toTime": "23:59:00.000000+00:00",
+                                "@toWeekDay": "WEDNESDAY"
+                            },
+                            {
+                                "@fromTime": "00:00:00.000000+00:00",
+                                "@fromWeekDay": "THURSDAY",
+                                "@toTime": "01:59:00.000000+00:00",
+                                "@toWeekDay": "THURSDAY"
+                            },
+                            {
+                                "@fromTime": "03:00:00.000000+00:00",
+                                "@fromWeekDay": "THURSDAY",
+                                "@toTime": "06:59:00.000000+00:00",
+                                "@toWeekDay": "THURSDAY"
+                            },
+                            {
+                                "@fromTime": "08:00:00.000000+00:00",
+                                "@fromWeekDay": "THURSDAY",
+                                "@toTime": "13:59:00.000000+00:00",
+                                "@toWeekDay": "THURSDAY"
+                            },
+                            {
+                                "@fromTime": "15:00:00.000000+00:00",
+                                "@fromWeekDay": "THURSDAY",
+                                "@toTime": "15:59:00.000000+00:00",
+                                "@toWeekDay": "THURSDAY"
+                            },
+                            {
+                                "@fromTime": "18:00:00.000000+00:00",
+                                "@fromWeekDay": "THURSDAY",
+                                "@toTime": "18:59:00.000000+00:00",
+                                "@toWeekDay": "THURSDAY"
+                            },
+                            {
+                                "@fromTime": "20:00:00.000000+00:00",
+                                "@fromWeekDay": "THURSDAY",
+                                "@toTime": "20:59:00.000000+00:00",
+                                "@toWeekDay": "THURSDAY"
+                            },
+                            {
+                                "@fromTime": "22:00:00.000000+00:00",
+                                "@fromWeekDay": "THURSDAY",
+                                "@toTime": "22:59:00.000000+00:00",
+                                "@toWeekDay": "THURSDAY"
+                            },
+                            {
+                                "@fromTime": "00:00:00.000000+00:00",
+                                "@fromWeekDay": "FRIDAY",
+                                "@toTime": "00:59:00.000000+00:00",
+                                "@toWeekDay": "FRIDAY"
+                            },
+                            {
+                                "@fromTime": "02:00:00.000000+00:00",
+                                "@fromWeekDay": "FRIDAY",
+                                "@toTime": "05:59:00.000000+00:00",
+                                "@toWeekDay": "FRIDAY"
+                            },
+                            {
+                                "@fromTime": "07:00:00.000000+00:00",
+                                "@fromWeekDay": "FRIDAY",
+                                "@toTime": "07:59:00.000000+00:00",
+                                "@toWeekDay": "FRIDAY"
+                            },
+                            {
+                                "@fromTime": "09:00:00.000000+00:00",
+                                "@fromWeekDay": "FRIDAY",
+                                "@toTime": "17:59:00.000000+00:00",
+                                "@toWeekDay": "FRIDAY"
+                            },
+                            {
+                                "@fromTime": "20:00:00.000000+00:00",
+                                "@fromWeekDay": "FRIDAY",
+                                "@toTime": "20:59:00.000000+00:00",
+                                "@toWeekDay": "FRIDAY"
+                            },
+                            {
+                                "@fromTime": "00:00:00.000000+00:00",
+                                "@fromWeekDay": "SATURDAY",
+                                "@toTime": "00:59:00.000000+00:00",
+                                "@toWeekDay": "SATURDAY"
+                            },
+                            {
+                                "@fromTime": "02:00:00.000000+00:00",
+                                "@fromWeekDay": "SATURDAY",
+                                "@toTime": "03:59:00.000000+00:00",
+                                "@toWeekDay": "SATURDAY"
+                            },
+                            {
+                                "@fromTime": "06:00:00.000000+00:00",
+                                "@fromWeekDay": "SATURDAY",
+                                "@toTime": "06:59:00.000000+00:00",
+                                "@toWeekDay": "SATURDAY"
+                            },
+                            {
+                                "@fromTime": "08:00:00.000000+00:00",
+                                "@fromWeekDay": "SATURDAY",
+                                "@toTime": "09:59:00.000000+00:00",
+                                "@toWeekDay": "SATURDAY"
+                            },
+                            {
+                                "@fromTime": "11:00:00.000000+00:00",
+                                "@fromWeekDay": "SATURDAY",
+                                "@toTime": "17:59:00.000000+00:00",
+                                "@toWeekDay": "SATURDAY"
+                            },
+                            {
+                                "@fromTime": "22:00:00.000000+00:00",
+                                "@fromWeekDay": "SATURDAY",
+                                "@toTime": "22:59:00.000000+00:00",
+                                "@toWeekDay": "SATURDAY"
+                            },
+                            {
+                                "@fromTime": "00:00:00.000000+00:00",
+                                "@fromWeekDay": "SUNDAY",
+                                "@toTime": "01:59:00.000000+00:00",
+                                "@toWeekDay": "SUNDAY"
+                            },
+                            {
+                                "@fromTime": "03:00:00.000000+00:00",
+                                "@fromWeekDay": "SUNDAY",
+                                "@toTime": "04:59:00.000000+00:00",
+                                "@toWeekDay": "SUNDAY"
+                            },
+                            {
+                                "@fromTime": "06:00:00.000000+00:00",
+                                "@fromWeekDay": "SUNDAY",
+                                "@toTime": "08:59:00.000000+00:00",
+                                "@toWeekDay": "SUNDAY"
+                            },
+                            {
+                                "@fromTime": "10:00:00.000000+00:00",
+                                "@fromWeekDay": "SUNDAY",
+                                "@toTime": "10:59:00.000000+00:00",
+                                "@toWeekDay": "SUNDAY"
+                            },
+                            {
+                                "@fromTime": "13:00:00.000000+00:00",
+                                "@fromWeekDay": "SUNDAY",
+                                "@toTime": "16:59:00.000000+00:00",
+                                "@toWeekDay": "SUNDAY"
+                            },
+                            {
+                                "@fromTime": "18:00:00.000000+00:00",
+                                "@fromWeekDay": "SUNDAY",
+                                "@toTime": "21:59:00.000000+00:00",
+                                "@toWeekDay": "SUNDAY"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "@default": "false",
+                    "@id": "QBP_RES_DEFAULT_TIMETABLE",
+                    "@name": "24/7",
+                    "http://www.qbp-simulator.com/Schema201212:rules": {
+                        "http://www.qbp-simulator.com/Schema201212:rule": {
+                            "@fromTime": "00:00:00.000+00:00",
+                            "@fromWeekDay": "MONDAY",
+                            "@toTime": "23:59:59.999+00:00",
+                            "@toWeekDay": "SUNDAY"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

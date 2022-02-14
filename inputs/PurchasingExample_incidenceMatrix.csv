@@ -1,0 +1,22 @@
+"","Kim Passa","Karel de Groot","Magdalena Predutta","Immanuel Karagianni","Tesca Lobes","Francois de Perrier","Sean Manney","Elvira Lores","Kiu Kan","Karalda Nimwada","Pedro Alvares","Alberto Duport","Christian Francois","Esmana Liubiata","Fjodor Kowalski","Esmeralda Clay","Heinz Gutschmidt","Francis Odell","Clement Duchot","Karen Clarens","Maris Freeman","Nico Ojenbeer","Carmen Finacse","Miu Hanwan","Anne Olwada","Anna Kaufmann","Penn Osterwalder"
+"Create Purchase Requisition",42,0,0,32,54,0,0,40,0,0,0,44,50,44,43,0,0,0,40,0,0,39,0,41,46,52,41
+"Create Request for Quotation",14,0,0,16,16,0,0,13,0,0,0,16,16,23,18,0,93,115,18,0,99,18,0,17,18,17,17
+"Analyze Request for Quotation",0,364,376,0,0,367,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Send Request for Quotation to Supplier",0,156,129,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Create Quotation comparison Map",0,144,149,0,0,120,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Analyze Quotation Comparison Map",29,0,0,27,37,0,0,25,0,0,0,34,32,29,30,0,0,0,32,0,0,33,0,26,26,23,30
+"Choose best option",35,0,0,35,29,0,0,29,0,0,0,26,18,27,37,0,0,0,27,0,0,32,0,28,27,28,35
+"Settle Conditions With Supplier",0,125,144,0,0,144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Create Purchase Order",0,138,148,0,0,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Confirm Purchase Order",0,0,0,0,0,0,74,0,102,0,0,0,0,0,0,65,0,0,0,79,0,0,93,0,0,0,0
+"Deliver Goods Services",0,0,0,0,0,0,81,0,90,0,0,0,0,0,0,85,0,0,0,74,0,0,83,0,0,0,0
+"Release Purchase Order",30,0,0,38,36,0,0,35,0,0,0,28,30,24,30,0,0,0,31,0,0,34,0,33,32,25,33
+"Approve Purchase Order for payment",0,142,138,0,0,133,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Send Invoice",0,0,0,0,0,0,63,0,116,0,0,0,0,0,0,80,0,0,0,71,0,0,83,0,0,0,0
+"Release Supplier's Invoice",0,0,0,0,0,0,0,0,0,201,202,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Authorize Supplier's Invoice payment",0,0,0,0,0,0,0,0,0,197,216,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Pay Invoice",0,0,0,0,0,0,0,0,0,197,216,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Amend Request for Quotation",40,0,0,43,22,0,0,31,0,0,0,40,40,36,37,0,19,11,32,0,19,38,0,47,50,21,37
+"Settle Dispute With Supplier",0,7,5,0,0,14,0,0,0,33,47,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Analyze Purchase Requisition",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,124,125,0,0,133,0,0,0,0,0,0
+"Amend Purchase Requisition",2,0,0,2,0,0,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,2,0,0,1

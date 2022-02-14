@@ -1,0 +1,80 @@
+<ns0:globalConfiguration xmlns:ns0="http://bsim.hpi.uni-potsdam.de/scylla/simModel" id="GlobalConf_35ea7cb1-ef44-476d-b6be-6c23e44b0bcd" targetNamespace="http://www.hpi.de">
+  <ns0:resourceAssignmentOrder>priority,simulationTime</ns0:resourceAssignmentOrder>
+  <ns0:randomSeed>3006</ns0:randomSeed>
+  <ns0:timetables>
+    <ns0:timetable id="Discovered_CASES_ARRIVAL_CALENDAR">
+      <ns0:timetableItem beginTime="05:00:00.000000+00:00" endTime="05:59:00.000000+00:00" from_="MONDAY" to="MONDAY" />
+    <ns0:timetableItem beginTime="14:00:00.000000+00:00" endTime="17:59:00.000000+00:00" from_="MONDAY" to="MONDAY" />
+    <ns0:timetableItem beginTime="21:00:00.000000+00:00" endTime="21:59:00.000000+00:00" from_="MONDAY" to="MONDAY" />
+    <ns0:timetableItem beginTime="23:00:00.000000+00:00" endTime="23:59:00.000000+00:00" from_="MONDAY" to="MONDAY" />
+    <ns0:timetableItem beginTime="05:00:00.000000+00:00" endTime="07:59:00.000000+00:00" from_="TUESDAY" to="TUESDAY" />
+    <ns0:timetableItem beginTime="09:00:00.000000+00:00" endTime="10:59:00.000000+00:00" from_="TUESDAY" to="TUESDAY" />
+    <ns0:timetableItem beginTime="12:00:00.000000+00:00" endTime="17:59:00.000000+00:00" from_="TUESDAY" to="TUESDAY" />
+    <ns0:timetableItem beginTime="19:00:00.000000+00:00" endTime="19:59:00.000000+00:00" from_="TUESDAY" to="TUESDAY" />
+    <ns0:timetableItem beginTime="21:00:00.000000+00:00" endTime="22:59:00.000000+00:00" from_="TUESDAY" to="TUESDAY" />
+    <ns0:timetableItem beginTime="01:00:00.000000+00:00" endTime="02:59:00.000000+00:00" from_="WEDNESDAY" to="WEDNESDAY" />
+    <ns0:timetableItem beginTime="05:00:00.000000+00:00" endTime="05:59:00.000000+00:00" from_="WEDNESDAY" to="WEDNESDAY" />
+    <ns0:timetableItem beginTime="11:00:00.000000+00:00" endTime="12:59:00.000000+00:00" from_="WEDNESDAY" to="WEDNESDAY" />
+    <ns0:timetableItem beginTime="14:00:00.000000+00:00" endTime="16:59:00.000000+00:00" from_="WEDNESDAY" to="WEDNESDAY" />
+    <ns0:timetableItem beginTime="19:00:00.000000+00:00" endTime="19:59:00.000000+00:00" from_="WEDNESDAY" to="WEDNESDAY" />
+    <ns0:timetableItem beginTime="23:00:00.000000+00:00" endTime="23:59:00.000000+00:00" from_="WEDNESDAY" to="WEDNESDAY" />
+    <ns0:timetableItem beginTime="01:00:00.000000+00:00" endTime="01:59:00.000000+00:00" from_="THURSDAY" to="THURSDAY" />
+    <ns0:timetableItem beginTime="05:00:00.000000+00:00" endTime="05:59:00.000000+00:00" from_="THURSDAY" to="THURSDAY" />
+    <ns0:timetableItem beginTime="08:00:00.000000+00:00" endTime="08:59:00.000000+00:00" from_="THURSDAY" to="THURSDAY" />
+    <ns0:timetableItem beginTime="11:00:00.000000+00:00" endTime="15:59:00.000000+00:00" from_="THURSDAY" to="THURSDAY" />
+    <ns0:timetableItem beginTime="23:00:00.000000+00:00" endTime="23:59:00.000000+00:00" from_="THURSDAY" to="THURSDAY" />
+    <ns0:timetableItem beginTime="04:00:00.000000+00:00" endTime="05:59:00.000000+00:00" from_="FRIDAY" to="FRIDAY" />
+    <ns0:timetableItem beginTime="08:00:00.000000+00:00" endTime="08:59:00.000000+00:00" from_="FRIDAY" to="FRIDAY" />
+    <ns0:timetableItem beginTime="11:00:00.000000+00:00" endTime="13:59:00.000000+00:00" from_="FRIDAY" to="FRIDAY" />
+    <ns0:timetableItem beginTime="15:00:00.000000+00:00" endTime="17:59:00.000000+00:00" from_="FRIDAY" to="FRIDAY" />
+    <ns0:timetableItem beginTime="19:00:00.000000+00:00" endTime="19:59:00.000000+00:00" from_="FRIDAY" to="FRIDAY" />
+    <ns0:timetableItem beginTime="00:00:00.000000+00:00" endTime="00:59:00.000000+00:00" from_="SATURDAY" to="SATURDAY" />
+    <ns0:timetableItem beginTime="05:00:00.000000+00:00" endTime="05:59:00.000000+00:00" from_="SATURDAY" to="SATURDAY" />
+    <ns0:timetableItem beginTime="16:00:00.000000+00:00" endTime="16:59:00.000000+00:00" from_="SATURDAY" to="SATURDAY" />
+    <ns0:timetableItem beginTime="16:00:00.000000+00:00" endTime="16:59:00.000000+00:00" from_="SATURDAY" to="SATURDAY" />
+    </ns0:timetable>
+    <ns0:timetable id="QBP_RES_DEFAULT_TIMETABLE">
+      <ns0:timetableItem beginTime="00:00:00.000+00:00" endTime="23:59:59.999+00:00" from_="MONDAY" to="SUNDAY" />
+    </ns0:timetable>
+  </ns0:timetables>
+  <ns0:resourceData>
+    <ns0:dynamicResource defaultCost="20" defaultQuantity="20" defaultTimeUnit="SECONDS" defaultTimetableId="Discovered_CASES_ARRIVAL_CALENDAR" id="QBP_DEFAULT_RESOURCE" name="SYSTEM" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce" name="ID4429" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce1" name="ID4932" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce2" name="ID4529" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce3" name="ID4794" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce4" name="ID4167" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce5" name="ID4641" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce6" name="ID4219" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce7" name="ID3846" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce8" name="ID4132" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce9" name="ID4718" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce10" name="ID0997" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce11" name="ID4142" />
+    <ns0:dynamicResource defaultCost="20" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_5d019f85-b445-45d6-a350-6e439f13370a" name="ID3716" />
+    <ns0:dynamicResource defaultCost="19" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_195d210f-ab53-4867-a943-647a10d201f9" name="ID4442" />
+    <ns0:dynamicResource defaultCost="19" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c0" name="ID4109" />
+    <ns0:dynamicResource defaultCost="19" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c01" name="ID3854" />
+    <ns0:dynamicResource defaultCost="19" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c02" name="ID4385" />
+    <ns0:dynamicResource defaultCost="19" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c03" name="ID4445" />
+    <ns0:dynamicResource defaultCost="19" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c04" name="ID0420" />
+    <ns0:dynamicResource defaultCost="19" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c05" name="ID4355" />
+    <ns0:dynamicResource defaultCost="19" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c06" name="ID4872" />
+    <ns0:dynamicResource defaultCost="19" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c07" name="ID4528" />
+    <ns0:dynamicResource defaultCost="15" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e6" name="ID4493" />
+    <ns0:dynamicResource defaultCost="15" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e61" name="ID4955" />
+    <ns0:dynamicResource defaultCost="15" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e62" name="ID4618" />
+    <ns0:dynamicResource defaultCost="15" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e63" name="ID4287" />
+    <ns0:dynamicResource defaultCost="15" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e64" name="ID4163" />
+    <ns0:dynamicResource defaultCost="16" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_1ce2a1ba-c63e-4e7a-a6ce-3f316822c720" name="ID4820" />
+    <ns0:dynamicResource defaultCost="16" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_1ce2a1ba-c63e-4e7a-a6ce-3f316822c7201" name="ID4291" />
+    <ns0:dynamicResource defaultCost="16" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_1ce2a1ba-c63e-4e7a-a6ce-3f316822c7202" name="ID4491" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_59afaa8b-39e2-4760-952c-bf35108f3c67" name="ID0998" />
+    <ns0:dynamicResource defaultCost="18" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_59afaa8b-39e2-4760-952c-bf35108f3c671" name="ID4882" />
+    <ns0:dynamicResource defaultCost="15" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_cbdcfa9e-9b1b-449f-9b80-3a224d148d99" name="ID4890" />
+    <ns0:dynamicResource defaultCost="15" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_cbdcfa9e-9b1b-449f-9b80-3a224d148d991" name="ID4851" />
+    <ns0:dynamicResource defaultCost="15" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_81e1b599-8e08-4d9b-9d37-65d4bdb6471d" name="ID0937" />
+    <ns0:dynamicResource defaultCost="22" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_ff21a636-a2c3-49ac-a735-8c660de068ac" name="ID3998" />
+    <ns0:dynamicResource defaultCost="14" defaultQuantity="1" defaultTimeUnit="SECONDS" defaultTimetableId="QBP_RES_DEFAULT_TIMETABLE" id="qbp_2a2f4423-58bc-41ab-b59c-9dacbd788623" name="ID4326" />
+  </ns0:resourceData>
+</ns0:globalConfiguration>
