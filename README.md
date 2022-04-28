@@ -3,44 +3,20 @@
 Simod combines several process mining techniques to fully automate the generation and validation of BPS models. The only input required by the Simod method is an eventlog in XES format.
 Simod + Resources combine the best futures of Simod, though also take into account the specific resources configuration in the process such as availability, costs and roles. Simod + Resources let the user define assignation policies based in their preferences. An assignation policy is defined as how the resources should be arrange in the business process model. Depending on the policy the tool will find the optimal model + resource configuration.
 
-## 1. Configuration
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### 1.1 System Requirements
- - [Python 3.x](https://www.python.org/downloads/)
+### System Prerequisites
+ - Python 3.x
  - Java SDK 1.8
- - [R 4.x](https://cran.r-project.org/bin/windows/base/)
- - [RTools 4.x](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
- - [Anaconda Distribution](https://www.anaconda.com/products/individual)
- - [Git](https://git-scm.com/downloads)
+ - R 4.x
+ - RTools 4.x
+ - Anaconda Distribution
 
-### 1.2 Getting Started
-
-Getting the source code:
-```
-$ git clone https://github.com/dfbaron/SimodR.git
-```
-
-### Execution steps without Anaconda
-```
-pip install -r requirements.txt
-```
-
-### Execution steps with Anaconda 
-#### Using terminal
-```
-conda env create -f SimodResourcesEnv.yml (For Windows OS)
-conda env create -f SimodResourcesEnvMacOS.yml (For Mac OS Related)
-conda activate SimodResourcesEnv[MacOs]
-```
-
-## 2. Execution
-
-### 2.1 Data format
+### Data format
 
 The tool assumes the input is composed by a case identifier, an activity label, a resource attribute (indicating which resource performed the activity), and two timestamps: the start timestamp and the end timestamp. The resource attribute is required in order to discover the available resource pools, their timetables, and the mapping between activities and resource pools, which are a required element in a BPS model. We require both start and endtimestamps for each activity instance,
 in order to compute the processing time of activities, which is also a required element in a simulation model.
-As an extra element for this project, per input log in XES format, is required a description of each resource cost. E.g.
+As an extra element for this thesis project, per input log in XES format, is required a description of each resource cost. E.g.
 ```
 <resourcesCost>
 		<resource key="Penn Osterwalder" value="10"/>
@@ -48,7 +24,40 @@ As an extra element for this project, per input log in XES format, is required a
 </resourcesCost>
 ```
 
-### 2.2 Process configuration
+
+### Execution steps without Anaconda
+```
+cd Simod_recursos_scylla
+pip install -r requirements.txt
+python main.py
+```
+
+### Execution steps with Anaconda 
+#### Using terminal
+```
+cd Simod_recursos_scylla
+conda env create -f SimodResourcesEnv.yml (For Windows OS)
+conda env create -f SimodResourcesEnvMacOS.yml (For Mac OS Related)
+conda activate SimodResourcesEnv[MacOs]
+python main.py
+```
+#### Using Anaconda GUI
+```
+Open Anaconda GUI
+Environments Tab
+Import
+Select either:
+- SimodResourcesEnv.yml (For Windows OS)
+- SimodResourcesEnvMacOS.yml (For Mac OS Related)
+Import
+Wait for every library to install
+Click Play button next to the environment name and select open Terminal
+In Terminal:
+- cd Simod_recursos_scylla
+- python main.py
+```
+
+### Process configuration
 The process can be setup in the file config.ini to execute different user preferences:
 ```
 
@@ -65,15 +74,11 @@ The process can be setup in the file config.ini to execute different user prefer
 [EXECUTION][happy_path]: True or False variable that represents the quality assignation policy. In this case the tool will determine the happy path of the process.
 [EXECUTION][simulator]: Choose the simulator of preference. For this project we are only using Scylla, for future implementations will be possible to include more simulators though.
 [EXECUTION][optimization]: True or False variable that define whenever you want to optimize the search. If this is selected the [OPTIMIZATION] section must be fill out.
-[EXECUTION][role_optimization]: Flag to determine whether role optimization will be performed.
-[EXECUTION][resource_optimization]: Flag to determine whether resource optimization (multi-objective optimization) will be performed.
 [OPTIMIZATION][objective]: Define the variable to optimize. Choose among: flowTime_avg, cost_total, waiting_avg, time_workload_avg.
 [OPTIMIZATION][criteria]: Choose the optimization criteria. 'min' for minimization or 'max' for maximization.
 
 ```
-## 3. Project Folders and files
-
-### 3.1 Project Folders
+### Project Folders and files
 Besides the modules showed in the previous Architecture image, the project folder have some important folders to take into account.
  - **Config.ini** file. Configuration file for the process.
  - **Main.py** file. Main execution file 
