@@ -835,7 +835,7 @@ def calculate_cooperation(solution):
 #Relajar las restricciones
 
 logs=['PurchasingExample']
-rpath='C:/Program Files/R/R-4.1.2/bin/Rscript'
+rpath='/usr/bin/Rscript'
 
 
 def read_parameters(input_log, input_nonrepeated_resources,input_cost,input_workload,input_flow_time,input_waiting_time,input_preference_policy,input_cooperation_policy):
