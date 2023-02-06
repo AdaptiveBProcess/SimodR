@@ -1,12 +1,15 @@
+#! /hpcfs/home/ing_sistemas/df.baron10/.conda/envs/SimodR/bin/Rscript
+
 import numpy as np
 import random as rn
 import math
 import subprocess
 import xml.etree.ElementTree as ET 
 
-import shutil
+
 import os
 from os import path
+from glob import glob
 import gc
 import time
 import json
@@ -22,6 +25,8 @@ def get_resource(resource_name,resources_dictionary):
         return id
 
 
+"REVISAR LOS INDICEEEES.Restricciones Qué roles están habilitados para qué actividad->Scylla. CORREO: 1. Cómo se manejan las restricciones sobre recursos Mutación con sentido. 2. Simulador asignacion por recurso o por rol. "
+
 """
 This function generates random initial solutions.
 
@@ -36,7 +41,6 @@ VERIFIED
 """
 
 def create_solutions(chromosome_length, solutions_number,resources_number):
-  print(" Create solutions ")
   solutions=np.zeros((solutions_number,chromosome_length))
 
   for solution in range(solutions_number): 
@@ -68,7 +72,6 @@ A vector containing the entire solution
 VERIFIED
 """
 def score_population(population):
-  print(" Score population ")
   scores=np.zeros((population.shape[0],metrics_number))
   for i in range(len(population)):
     #SIMULAR UNA VEZ
@@ -92,7 +95,6 @@ The whole population, the rate of mutation.
 VERIFIED
 """
 def randomly_mutate_population(population, mutation_probability):
-  print(" Randomly mutate population ")
   mutations_number=math.ceil(len(population)*mutation_probability)
   list=[]
   for i in range(mutations_number):
@@ -121,7 +123,7 @@ The vector that is going to be mutated.
 VERIFIED
 """
 def random_swap(solution):
-  print(" Random Swap")
+  
   first_position=rn.randint(0,len(solution)-1)
   second_position=rn.randint(0,len(solution)-1)
   auxiliary_position=solution[first_position]
@@ -130,7 +132,6 @@ def random_swap(solution):
   return solution
 
 def random_change(solution):
-  print(" Random change ")
   activity=rn.randint(0,len(solution)-1)
   resource=rn.randint(1,len(resources_dictionary))
   solution[activity]=resource
@@ -144,7 +145,6 @@ Both parents must match in length
 
 """
 def breed_by_crossover(parent_1,parent_2):
-  print(" Breed by crossover")
   chromosome_length=len(parent_1)
   crossover_point=rn.randint(0,(chromosome_length-1))
   child=np.hstack((parent_1[0:crossover_point],parent_2[crossover_point:]))
@@ -163,8 +163,6 @@ def breed_by_crossover(parent_1,parent_2):
      i=i+1
   return child
 
-
-
 def get_pmx_resource():
 
   return rn.randint(1,len(resources_dictionary))
@@ -175,7 +173,6 @@ def get_pmx_resource():
 #Ser elitista
 
 def breed_population(population):
-  print(" Breed Population")
   new_population=[]
   global hash_dictionary
   global fronts_dictionary
@@ -254,10 +251,9 @@ Asimismo, el esqueleto del algoritmo está basado en esa solución."""
 
 
 def calculate_crowding(scores):
-    print(" Calculate crowding ")
     """
     Crowding is based on a vector for each individual
-    All scores are normalzed between low and high. For any one score, all
+    All scores are normalised between low and high. For any one score, all
     solutions are sorted in order low to high. Crowding for chromsome x
     for that score is the difference between the next highest and next
     lowest score. Total crowding value sums all crowding for all scores
@@ -305,7 +301,6 @@ def calculate_crowding(scores):
 """ La función declarada a continuación fue tomado de: https://pythonhealthcare.org/2019/01/17/117-genetic-algorithms-2-a-multiple-objective-genetic-algorithm-nsga-ii/
 Asimismo, el esqueleto del algoritmo está basado en esa solución."""
 def reduce_by_crowding(scores, number_to_select):
-    print(" Reduce by crowding ")
     """
     This function selects a number of solution d on tournament of
     crowding distances. Two members of the population are picked at
@@ -362,6 +357,7 @@ def reduce_by_crowding(scores, number_to_select):
 """ La función declarada a continuación fue tomado de: https://pythonhealthcare.org/2019/01/17/117-genetic-algorithms-2-a-multiple-objective-genetic-algorithm-nsga-ii/
 Asimismo, el esqueleto del algoritmo está basado en esa solución."""
 def identify_pareto(scores, population_ids):
+
     """
     Identifies a single Pareto front, and returns the population IDs of
     the selected solutions.
@@ -387,7 +383,7 @@ def identify_pareto(scores, population_ids):
 """ La función declarada a continuación fue tomado de: https://pythonhealthcare.org/2019/01/17/117-genetic-algorithms-2-a-multiple-objective-genetic-algorithm-nsga-ii/
 Asimismo, el esqueleto del algoritmo está basado en esa solución."""
 def build_pareto_population(population, scores, minimum_population_size, maximum_population_size):
-    print("Pareto Population")
+
     """
     As necessary repeats Pareto front selection to build a population within
     defined size limits. Will reduce a Pareto front by applying crowding 
@@ -423,27 +419,6 @@ def build_pareto_population(population, scores, minimum_population_size, maximum
     population = population[pareto_front.astype(int)]
     return population
 
-def remove_garbage_sim_files(population, log):
-  left_n_files = 1
-  names = ['_'.join([str(int(y)) for y in x]) for x in population]
-  names.append('BASELINE')
-  names = ['{}_ScyllaSimuConfig_{}.xml'.format(log, name) for name in names]
-  files = [x for x in os.listdir('simulation_files/') if os.path.isfile(os.path.join('simulation_files/', x))]
-
-  for file in files:
-    if file not in names[:left_n_files]:
-      os.remove(os.path.join('simulation_files', file))
-  print('----------------------------- Removing garbage files ---------------------------')
-
-def move_simulation_files(log):
-  files = [x for x in os.listdir('simulation_files/') if os.path.isfile(os.path.join('simulation_files/', x))]
-  folder_name = 'simulation_files/{}_{}'.format(log, output_date)
-  if not os.path.exists(folder_name):
-    os.mkdir(folder_name)
-  for file in files:
-    shutil.move(os.path.join('simulation_files', file), os.path.join(folder_name, file))  
-  print('----------------------------- Moving files to final folder ---------------------------')
-
 
 "Number of metrics in the multiobjective function"
 def main_NSGA2(initial_population, max_population, min_population, generations):
@@ -458,9 +433,9 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
   minimum_population_size = int(min_population)
   maximum_population_size =int( max_population)
   resources_number=len(resources_dictionary)
-
-  population = create_solutions( chromosome_length, starting_population_size, resources_number)
-
+  
+  population = create_solutions( chromosome_length,starting_population_size, resources_number)
+  
   for generation in range(maximum_generation):
   #while convergence<=10:  
      
@@ -492,8 +467,6 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
 
       # Score population
       scores = score_population(population)
-      print("--------------------------- SCORES ------------------------")
-      print(scores)
       len_unique_scores = len(np.unique(scores, axis=0))
       len_scores=len(scores)
       mutation_probability=0.2*(1-len_unique_scores/len_scores)
@@ -501,6 +474,8 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
       print("Scoring completed. Starting building Pareto front")
       # Build pareto front
       population = build_pareto_population(population, scores, minimum_population_size, maximum_population_size)
+      
+             
       
       # Breed
       print("Starting breeding...")
@@ -511,26 +486,61 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
       fronts_dictionary={}
       print("Built pareto front")
       
+              
+      
       gc.collect()
+      
       
   print("Finished generations")
   for solution in range(len(population)):
       population[solution]=make_feasible(population[solution])
   scores = score_population(population)
-
   population_ids = np.arange(population.shape[0]).astype(int)
   pareto_front = identify_pareto(scores, population_ids)
   population = population[pareto_front, :]
-
-  remove_garbage_sim_files(population, log)
-  move_simulation_files(log)
-
+  
   scores = scores[pareto_front]
+  print(scores)
+  print("Population")
+  print(population)
   global output_date
   
-  np.savetxt('outputs/'+output_date+'/'+log+"_solutions.csv", population, delimiter=",", fmt="%s") 
-  np.savetxt('outputs/'+output_date+'/'+log+"_scores.csv", scores, delimiter=",", fmt="%s") 
+  if preference_policy == 0 and cooperation_policy == 0:
+    policy = 'No policy'
+  elif preference_policy == 1 and cooperation_policy == 0:
+    policy = 'Preference'
+  elif preference_policy == 0 and cooperation_policy == 1:
+    policy = 'Cooperation'
+    
+  if cost == -1 and flow_time == 0 and waiting_time == 0:
+    optimization = 'Cost'
+  elif flow_time == -1 and cost == 0 and waiting_time == 0:
+    optimization = 'Flow time'
+  elif waiting_time == -1 and flow_time== 0  and cost == 0:
+    optimization = 'Waiting time'
+  elif cost == -1 and flow_time == -1 and waiting_time == -1:
+    optimization = 'Multiobjective'
   
+  
+  stats = []
+  for solution in population:
+    results = calculate_fitness(solution)
+    stats.append([log, policy, optimization, float(results['cost_average']), float(results['flow_time_average']), float(results['waiting_time_average']), float(results['workload_average'])])
+    
+  df_stats = pd.DataFrame(stats, columns = ['Log', 'Policy', 'Optimization', 'Cost', 'Flow time', 'Waiting', 'Workload'])
+  df_g = df_stats.groupby(['Log', 'Policy', 'Optimization'], as_index=True).agg({'Cost' : 'mean', 'Flow time' : 'mean', 'Waiting': 'mean', 'Workload': 'mean'}).reset_index()
+  df_g.to_csv('stats/{}_{}_{}.csv'.format(log, policy, optimization))
+    
+  baseline_path = 'stats/{}_{}.csv'.format(log, 'baseline')
+  if not os.path.exists(baseline_path):
+    print('Calculating BASELINE stats')
+    results_b = calculate_fitness('BASELINE')
+    baseline_data = [[log, 'Baseline', 'Baseline', float(results_b['cost_average']), float(results_b['flow_time_average']), float(results_b['waiting_time_average']), float(results_b['workload_average'])]]
+    df_stats_b = pd.DataFrame(baseline_data, columns = ['Log', 'Policy', 'Optimization', 'Cost', 'Flow time', 'Waiting', 'Workload'])
+    df_stats_b.to_csv(baseline_path)
+  
+  np.savetxt('outputs/'+output_date+'/'+log+"_solutions.csv", population, delimiter=",")
+  np.savetxt('outputs/'+output_date+'/'+log+"_scores.csv", scores, delimiter=",") 
   
 
   
@@ -549,8 +559,6 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
   with open('utilities/'+log+'_hash.json', 'w', encoding='utf-8') as f:
         json.dump(hash_dictionary, f, ensure_ascii=False, indent=4)
   
-  return population, scores
-    
   
   
 
@@ -566,7 +574,7 @@ def myconverter(obj):
 
         
 def make_feasible(solution):
-    print(" Make feasible ")
+   
     for i in range(len(solution)):
         activity_id=activities_dictionary[i+1]
         resource_id=resources_dictionary[solution[i]]
@@ -604,7 +612,7 @@ Simulador"""
 
 
 def calculate_fitness(solution):
-  print(" Calculate fitness")
+  
   starting_time = int(round(time.time() * 1000))
   solution_hash=hash(str(solution))
   results_dictionary={}
@@ -631,12 +639,16 @@ def calculate_fitness(solution):
   else:
     #   print('SIMULATION STARTED at:'+str(starting_time))
        
-       output_file_name="scylla_results_"+log
-      
-
-       if os.path.exists('scylla_results_'):
-           os.rmdir("scylla_results_")
-    
+       if str(solution) == 'BASELINE':
+         output_file_name="scylla_results_{}_{}".format(log, 'BASELINE')
+       else:
+         output_file_name="scylla_results_{}".format(log)
+       
+       files_r = [os.remove(x) for x in glob('{}/*'.format(output_file_name))]
+       if os.path.exists(output_file_name):
+           os.rmdir(output_file_name)
+       
+       """
        if os.path.exists(output_file_name+"ScyllaGlobalConfig_resourceutilization.xml"):
            os.remove(output_file_name+"ScyllaGlobalConfig_resourceutilization.xml")
     
@@ -645,9 +657,8 @@ def calculate_fitness(solution):
     
        if os.path.exists(output_file_name+"ScyllaGlobalConfig_batchactivitystats.txt"):
            os.remove(output_file_name+"ScyllaGlobalConfig_batchactivitystats.txt")    
-
-
-
+       """
+  
        i=0
        if str(solution)!="BASELINE":
          
@@ -655,40 +666,41 @@ def calculate_fitness(solution):
            if child.get('name')!="Start" and child.get('name')!="End" :
                child.find('{http://bsim.hpi.uni-potsdam.de/scylla/simModel}resources')[0].set('id',resources_dictionary[int(solution[i])])
                i=i+1
-
-       #activities_tree.write('inputs/'+log+'ScyllaSimuConfig.xml')
-
-       if solution == 'BASELINE':
-          sim_file_name = 'simulation_files/{}_ScyllaSimuConfig_{}.xml'.format(log, solution)
+       
+       global_config_name = 'inputs/'+log+"ScyllaGlobalConfig.xml"
+       output_tree_name = output_file_name+"/"+log+"ScyllaGlobalConfig_resourceutilization.xml"
+       if str(solution) == 'BASELINE':
+         sim_config_name = 'inputs/'+log+'ScyllaSimuConfig_BASELINE.xml'
        else:
-          sim_file_name = 'simulation_files/{}_ScyllaSimuConfig_{}.xml'.format(log, '_'.join([str(int(x)) for x in solution]))
-
-       activities_tree.write(sim_file_name)
-       args = ['java', '-jar', 'external_tools/ScyllaNew/Scylla_V6.jar',"--config="+'inputs/'+log+"ScyllaGlobalConfig.xml","--bpmn="+'inputs/'+log+".bpmn","--sim={}".format(sim_file_name),"--output=scylla_results_","--enable-bps-logging"]
-       subprocess.call(args,shell=True,stdout=subprocess.PIPE)
+         sim_config_name = 'inputs/'+log+'ScyllaSimuConfig.xml'
+         
+       activities_tree.write(sim_config_name)
+      
+       args = ['java', '-jar', 'external_tools/ScyllaNew/Scylla_V6.jar',"--config="+global_config_name,"--bpmn="+'inputs/'+log+".bpmn","--sim="+sim_config_name,"--output={}/".format(output_file_name),"--enable-bps-logging"]
+       #subprocess.call(args,shell=True,stdout=subprocess.PIPE)
+       subprocess.call(args,stdout=subprocess.PIPE)
        duration= int(round(time.time() * 1000))-starting_time
      #  print('SIMULATION FINISHED, duration='+str(duration))
 
        
        starting_time = int(round(time.time() * 1000))
-       input('Presione enter para continuar')
-       output_tree =ET.parse(output_file_name+"ScyllaGlobalConfig_resourceutilization.xml")
+       output_tree =ET.parse(output_tree_name)
        output_root=output_tree.getroot()
        resources_output_metrics=output_root.find('resources')
        accumulative_workload=0
        nchilds=0
        for child in resources_output_metrics:
-           accumulative_workload = accumulative_workload+float(child.find('time').find('workload').find('avg').text)
+           accumulative_workload=accumulative_workload+float(child.find('time').find('workload').find('avg').text)
           # print(accumulative_workload)
            nchilds=nchilds+1
        output_metrics=output_root[1][0]
        
-       cost_average = output_metrics.find('cost').find('avg').text
-       flow_time_average = output_metrics.find('time').find('flow_time').find('avg').text
-       waiting_time_average = output_metrics.find('time').find('waiting').find('avg').text
-       workload_average = accumulative_workload/nchilds
-       preference = calculate_preference(solution)
-       cooperation = calculate_cooperation(solution)
+       cost_average=output_metrics.find('cost').find('avg').text
+       flow_time_average=output_metrics.find('time').find('flow_time').find('avg').text
+       waiting_time_average=output_metrics.find('time').find('waiting').find('avg').text
+       workload_average=accumulative_workload/nchilds
+       preference=calculate_preference(solution)
+       cooperation=calculate_cooperation(solution)
        
        results_dictionary={
         "waiting_time_average":waiting_time_average,
@@ -700,20 +712,23 @@ def calculate_fitness(solution):
        }
        
        if str(solution)!="BASELINE":
-           hash_dictionary[solution_hash] = [cost_average,flow_time_average,waiting_time_average,workload_average,preference,cooperation]
+           hash_dictionary[solution_hash]=[cost_average,flow_time_average,waiting_time_average,workload_average,preference,cooperation]
        else:
-           hash_dictionary[solution_hash] = [cost_average,flow_time_average,waiting_time_average,workload_average,str(0),str(0)]
-
+           hash_dictionary[solution_hash]=[cost_average,flow_time_average,waiting_time_average,workload_average,str(0),str(0)]
+       
+       files_r = [os.remove(x) for x in glob('{}/*'.format(output_file_name))]
+       if os.path.exists(output_file_name):
+           os.rmdir(output_file_name)
+       """
        os.remove(output_file_name+"ScyllaGlobalConfig_resourceutilization.xml")
        os.remove(output_file_name+".xes")
        os.remove(output_file_name+"ScyllaGlobalConfig_batchactivitystats.txt")
        os.rmdir("scylla_results_")
-
-
+      """
+          
   return results_dictionary
 
 def repair_xml(path):
-    print(" Repair xml ")
     tree = ET.parse(path)
     root = tree.getroot()
     prev = None
@@ -801,15 +816,14 @@ def calculate_preference(solution):
     return str(total_sum)
 
 def calculate_cooperation(solution):
-   print(" Calculate cooperation ")
    total_sum=0
    if str(solution)!="BASELINE":
     for i in range(len(solution)-1):
         
-        first_resource_id = resources_dictionary[solution[i]]
-        second_resource_id = resources_dictionary[solution[i+1]]
-        first_resource_name_map = name_id_resources_dictionary[first_resource_id]
-        second_resource_name_map = name_id_resources_dictionary[second_resource_id]
+        first_resource_id=resources_dictionary[solution[i]]
+        second_resource_id=resources_dictionary[solution[i+1]]
+        first_resource_name_map=name_id_resources_dictionary[first_resource_id]
+        second_resource_name_map=name_id_resources_dictionary[second_resource_id]
         
        
                 
@@ -820,9 +834,9 @@ def calculate_cooperation(solution):
                    
                    # print(activity_name_map+":"+resource_name_map)
                   
-                  num_repetitions = cooperation_matrix.at[first_resource_name_map, second_resource_name_map]
+                  num_repetitions=cooperation_matrix.at[first_resource_name_map, second_resource_name_map]
                   #num_repetitions=cooperation_matrix.loc[first_resource_name_map, second_resource_name_map].values[0]
-                  total_sum = total_sum + num_repetitions
+                  total_sum=total_sum+num_repetitions
                   
     return str(total_sum)
         
@@ -834,12 +848,11 @@ def calculate_cooperation(solution):
 #Exportar un csv
 #Relajar las restricciones
 
-logs=['PurchasingExample']
-rpath='/usr/bin/Rscript'
+logs=['Production','PurchasingExample']
+rpath = '/hpcfs/apps/conda4.12.0/envs/r-3.6.3/bin/Rscript'
 
 
 def read_parameters(input_log, input_nonrepeated_resources,input_cost,input_workload,input_flow_time,input_waiting_time,input_preference_policy,input_cooperation_policy):
-                    print(" Read parameters")
                     global log
                     log=input_log
                     #Para minimizar poner -1, para maximizxar 1y pa no hacer nada 0
@@ -1006,6 +1019,7 @@ def read_parameters(input_log, input_nonrepeated_resources,input_cost,input_work
                      with open('utilities/'+log+'_hash.json') as json_file:
                        print(" Importing solutions...")
                        hash_dictionary = json.load(json_file)
+                       
                     except IOError:
                         print("------------------------- No previous results --------------------------")
                      
@@ -1052,7 +1066,6 @@ def read_parameters(input_log, input_nonrepeated_resources,input_cost,input_work
                     
                     
                     args = [rpath, '--vanilla', 'support_modules/matrix_processing/PreProcessing.R','inputs/'+log]
-                    print(args)
                     subprocess.call(args,shell=True,stdout=subprocess.PIPE)
                     global incidence_matrix
                     incidence_matrix = pd.read_csv('inputs/'+log+'_incidenceMatrix.csv', index_col=0)
@@ -1082,11 +1095,17 @@ def read_parameters(input_log, input_nonrepeated_resources,input_cost,input_work
                     
                     os.mkdir('outputs/'+output_date)
                     np.savetxt('outputs/'+output_date+'/'+log+"_baseline_scores.csv", baseline_output, delimiter=",")
+                    
+
+"""
+
+#Marzo 10 - 11:17 pm
 
 
 
+#No Policy
+read_parameters('PurchasingExample',False,1,-1, 1,1, 0, 0)
+print(calculate_fitness([17,4,27,25,24,27,4,18,24,27,11,1,25,9,11,27,22,12,26,23,26]))
 
 
-
-
-
+"""

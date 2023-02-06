@@ -104,6 +104,7 @@ def read_settings(settings):
     settings['flag'] = config.get('EXECUTION', 'flag')
     settings['cooperation_policy'] = config.get('EXECUTION', 'cooperation_policy')
     settings['preference_policy'] = config.get('EXECUTION', 'preference_policy')
+    settings['ns_include'] = bool(config.get('EXECUTION', 'ns_include'))
     
     settings['k'] = config.get('EXECUTION', 'k')
     settings['sim_percentage'] = config.get('EXECUTION', 'sim_percentage')
@@ -111,9 +112,6 @@ def read_settings(settings):
     settings['reverse'] = config.get('EXECUTION', 'reverse')
     settings['happy_path'] = config.get('EXECUTION', 'happy_path')
     settings['graph_roles_flag'] = config.get('EXECUTION','graph_roles_flag')
-    
-    
-    
 
     # Conditional settings
     settings['miner_path'] = reformat_path(config.get('EXTERNAL', 'splitminer'))
@@ -156,6 +154,7 @@ def objective(params):
 
     graph_opti = True if settings['graph_optimization'] == 'True' else False
     graph_roles_flag = True if settings['graph_roles_flag'] == 'True' else False
+    ns_include = True if settings['ns_include'] == 'True' else False
     
     for f in settings['flag'].split(","):
         f = int(f)
@@ -184,11 +183,13 @@ def objective(params):
                     os.makedirs(os.path.join(settings['output'], 'sim_data'))
                 copyfile(os.path.join(settings['input'], settings['file']),
                          os.path.join(settings['output'], settings['file']))
-                log = lr.LogReader('inputs/'+settings['file'].split('.')[0] + '.xes',
-                                   settings['timeformat'])
+                
+                log = lr.LogReader(input = 'inputs/'+settings['file'].split('.')[0] + '.xes',
+                                   ns_include = ns_include,
+                                   timeformat = settings['timeformat'])
 
                 bpmn = br.BpmnReader('inputs/'+settings['file'].split('.')[0] + '.bpmn')
-                print(bpmn)
+                
                 process_graph = gph.create_process_structure(bpmn)
 
                 print("-- Mining Simulation Parameters --")

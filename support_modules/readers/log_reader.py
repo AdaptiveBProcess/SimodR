@@ -16,7 +16,7 @@ class LogReader(object):
 	This class reads and parse the elements of a given process log in format .xes or .csv
 	"""
 
-    def __init__(self, input, timeformat, ns_include=True, one_timestamp=False):
+    def __init__(self, input, timeformat, ns_include, one_timestamp=False):
         """constructor"""
         self.input = input
         self.data, self.raw_data, self.happy_path = self.load_data_from_file(timeformat, ns_include, one_timestamp)
@@ -72,13 +72,14 @@ class LogReader(object):
         temp_data = list()
         tree = ET.parse(filename)
         root = tree.getroot()
+        #ns_include = False
         if ns_include:
             ns = {'xes': root.tag.split('}')[0].strip('{')}
             tags = dict(trace='xes:trace',string='xes:string',event='xes:event',date='xes:date',resources='xes:resource',happyPath='xes:happyPath',activity = 'xes:activity')
         else:
             ns = {'xes':''}
             tags = dict(trace='trace',string='string',event='event',date='date',resources='resource',happyPath='happyPath',activity = 'activity')
-
+        
         happy_path = list()
         # happyPath = root.findall(tags['happyPath'],ns)
         # for path in happyPath:
@@ -114,6 +115,8 @@ class LogReader(object):
         
         
         traces = root.findall(tags['trace'], ns)
+        
+        
         i = 0
         sup.print_performed_task('Reading log traces ')
         for trace in traces:
@@ -146,7 +149,7 @@ class LogReader(object):
                             timestamp = datetime.datetime.strptime(timestamp[:-6], timeformat)
                         except ValueError:
                             timestamp = datetime.datetime.strptime(timestamp, timeformat)
-                if not (task == '0' or task == '-1'):
+                if not (task == '0' or task == '-1' or user not in [x['resourceName'] for x in resourcesCosts]):
                     #ToDO: Include in the dict the costxhour x resource.
                     temp_data.append(
                         dict(caseid=caseid, task=task, event_type=event_type, user=user,costxhour=list(filter(lambda x: x['resourceName']==user,resourcesCosts))[0]['resourceCost'], start_timestamp=timestamp,

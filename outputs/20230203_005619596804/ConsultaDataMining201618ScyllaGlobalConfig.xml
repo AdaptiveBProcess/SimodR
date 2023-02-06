@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='ASCII'?>
+<bsim:globalConfiguration xmlns:bsim="http://bsim.hpi.uni-potsdam.de/scylla/simModel" id="GlobalConf_8b2658ce-fbee-4196-a997-c0b23267532e" targetNamespace="http://www.hpi.de">
+  <bsim:resourceAssignmentOrder>priority,simulationTime</bsim:resourceAssignmentOrder>
+  <bsim:randomSeed>3006</bsim:randomSeed>
+  <bsim:timetables>
+    <bsim:timetable id="QBP_DEFAULT_TIMETABLE">
+      <bsim:timetableItem from_="MONDAY" to="FRIDAY" beginTime="09:00:00.000+00:00" endTime="17:00:00.000+00:00"/>
+    </bsim:timetable>
+  </bsim:timetables>
+  <bsim:resourceData>
+    <bsim:dynamicResource id="Role_1" name="Role 1" defaultQuantity="1" defaultCost="18.0" defaultTimetableId="QBP_DEFAULT_TIMETABLE" defaultTimeUnit="SECONDS">
+      <bsim:instance name="8824" timetableId="QBP_DEFAULT_TIMETABLE" cost="18"/>
+    </bsim:dynamicResource>
+    <bsim:dynamicResource id="Role_2" name="Role 2" defaultQuantity="1" defaultCost="18.0" defaultTimetableId="QBP_DEFAULT_TIMETABLE" defaultTimeUnit="SECONDS">
+      <bsim:instance name="8824" timetableId="QBP_DEFAULT_TIMETABLE" cost="18"/>
+    </bsim:dynamicResource>
+    <bsim:dynamicResource id="Role_3" name="Role 3" defaultQuantity="1" defaultCost="18.0" defaultTimetableId="QBP_DEFAULT_TIMETABLE" defaultTimeUnit="SECONDS">
+      <bsim:instance name="677" timetableId="QBP_DEFAULT_TIMETABLE" cost="18"/>
+    </bsim:dynamicResource>
+    <bsim:dynamicResource id="Role_4" name="Role 4" defaultQuantity="1" defaultCost="18.0" defaultTimetableId="QBP_DEFAULT_TIMETABLE" defaultTimeUnit="SECONDS">
+      <bsim:instance name="677" timetableId="QBP_DEFAULT_TIMETABLE" cost="18"/>
+    </bsim:dynamicResource>
+    <bsim:dynamicResource id="0" name="Role 0" defaultQuantity="1" defaultCost="0" defaultTimetableId="QBP_DEFAULT_TIMETABLE" defaultTimeUnit="SECONDS"/>
+  </bsim:resourceData>
+</bsim:globalConfiguration>

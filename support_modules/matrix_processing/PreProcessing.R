@@ -6,7 +6,7 @@ package.check <- lapply(
   packages,
   FUN = function(x) {
     if (!require(x, character.only = TRUE)) {
-      install.packages(x,repos = "http://cran.us.r-project.org", dependencies = TRUE)
+      install.packages(x, repos='http://cran.rstudio.com/', dependencies = TRUE, INSTALL_opts = c('--no-lock'))
       library(x, character.only = TRUE)
     }
   }

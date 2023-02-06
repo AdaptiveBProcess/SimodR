@@ -62,8 +62,10 @@ def extract_parameters(log, bpmn, process_graph, flag, k, sim_percentage, simula
 
         # -------------------------------------------------------------------
         # Process replaying
+
         conformed_traces, not_conformed_traces, process_stats = rpl.replay(process_graph, log,
                                                                            resource_table=resource_table)
+                                                                           
         # -------------------------------------------------------------------
         # Adding role to process stats
         for stat in process_stats:
@@ -83,7 +85,7 @@ def extract_parameters(log, bpmn, process_graph, flag, k, sim_percentage, simula
             count_traces_dict = dict()
             i = 0
             for trace in conformed_traces:
-                sup.print_progress(((i / (len(conformed_traces) - 1)) * 100), 'Discovering Happy Path ')
+                sup.print_progress(((i / (len(conformed_traces) - 1)) * 100), 'Discovering Happy Path in conformed traces')
                 string_tasks = []
                 task_ID_case = 0
                 resource_list = list()
@@ -104,6 +106,7 @@ def extract_parameters(log, bpmn, process_graph, flag, k, sim_percentage, simula
                 else:
                     hash_dict[hash_object_key.hexdigest()].append(
                         dict(caseid=task_ID_case, resource_list=resource_list))
+                        
                 if hash_object_key.hexdigest() not in count_traces_dict:
                     count_traces_dict[hash_object_key.hexdigest()] = 1
                 else:

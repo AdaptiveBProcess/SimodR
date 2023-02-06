@@ -1,0 +1,10 @@
+,0,avg_costxhour,costxhour,dif_timestamp,idTask,lenRole,quantity,resource,role,roleID,role_ID,schedule,task
+0,Activity table: Activities grouped by K frequent resources,,,,,,,,,,,,
+0,,18.0,,,1.0,1.0,[7],['8824'],Role 1,,Role_1,,Traer informacion estudiante - banner
+1,,18.0,,,3.0,1.0,[7],['8824'],Role 2,,Role_2,,Radicar Solicitud Homologacion
+2,,18.0,,,2.0,1.0,[36],['677'],Role 3,,Role_3,,Cancelar Solicitud
+3,,18.0,,,0.0,1.0,[36],['677'],Role 4,,Role_4,,Notificacion estudiante cancelacion soli
+0,,18.0,18.0,2703.0,,,,8824,Role 1,Role_1,,"{'work_days': [1, 1, 1, 1, 1, 0, 0], 'start_hour': datetime.datetime(1900, 1, 1, 9, 0), 'end_hour': datetime.datetime(1900, 1, 1, 17, 0)}",
+1,,18.0,18.0,2703.0,,,,8824,Role 2,Role_2,,"{'work_days': [1, 1, 1, 1, 1, 0, 0], 'start_hour': datetime.datetime(1900, 1, 1, 9, 0), 'end_hour': datetime.datetime(1900, 1, 1, 17, 0)}",
+2,,18.0,18.0,58625.0,,,,677,Role 3,Role_3,,"{'work_days': [1, 1, 1, 1, 1, 0, 0], 'start_hour': datetime.datetime(1900, 1, 1, 9, 0), 'end_hour': datetime.datetime(1900, 1, 1, 17, 0)}",
+3,,18.0,18.0,58625.0,,,,677,Role 4,Role_4,,"{'work_days': [1, 1, 1, 1, 1, 0, 0], 'start_hour': datetime.datetime(1900, 1, 1, 9, 0), 'end_hour': datetime.datetime(1900, 1, 1, 17, 0)}",
