@@ -72,6 +72,7 @@ To create an environment associated with SimodR you have to run the following co
 ```
 module load anaconda/python3.9 
 conda env create -f SimodResourcesEnv.yml
+source activate SimodR
 pip install -r requirements.txt
 ```
 
