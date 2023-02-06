@@ -5,14 +5,14 @@ Simod + Resources combine the best futures of Simod, though also take into accou
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### System Prerequisites
+## System Prerequisites
  - Python 3.x
  - Java SDK 1.8
  - R 4.x
  - RTools 4.x
  - Anaconda Distribution
 
-### Data format
+## Data format
 
 The tool assumes the input is composed by a case identifier, an activity label, a resource attribute (indicating which resource performed the activity), and two timestamps: the start timestamp and the end timestamp. The resource attribute is required in order to discover the available resource pools, their timetables, and the mapping between activities and resource pools, which are a required element in a BPS model. We require both start and endtimestamps for each activity instance,
 in order to compute the processing time of activities, which is also a required element in a simulation model.
@@ -25,15 +25,15 @@ As an extra element for this thesis project, per input log in XES format, is req
 ```
 
 
-### Execution steps without Anaconda
+## Execution steps without Anaconda
 ```
 cd Simod_recursos_scylla
 pip install -r requirements.txt
 python main.py
 ```
 
-### Execution steps with Anaconda 
-#### Using terminal
+## Execution steps with Anaconda 
+### Using terminal
 ```
 cd Simod_recursos_scylla
 conda env create -f SimodResourcesEnv.yml (For Windows OS)
@@ -41,7 +41,7 @@ conda env create -f SimodResourcesEnvMacOS.yml (For Mac OS Related)
 conda activate SimodResourcesEnv[MacOs]
 python main.py
 ```
-#### Using Anaconda GUI
+### Using Anaconda GUI
 ```
 Open Anaconda GUI
 Environments Tab
@@ -57,7 +57,7 @@ In Terminal:
 - python main.py
 ```
 
-### Process configuration
+## Process configuration
 The process can be setup in the file config.ini to execute different user preferences:
 ```
 
@@ -78,7 +78,7 @@ The process can be setup in the file config.ini to execute different user prefer
 [OPTIMIZATION][criteria]: Choose the optimization criteria. 'min' for minimization or 'max' for maximization.
 
 ```
-### Project Folders and files
+## Project Folders and files
 Besides the modules showed in the previous Architecture image, the project folder have some important folders to take into account.
  - **Config.ini** file. Configuration file for the process.
  - **Main.py** file. Main execution file 
@@ -104,7 +104,7 @@ Besides the modules showed in the previous Architecture image, the project folde
             
     
 
-## Authors
+# Authors
 
 * SIMOD: **Manuel Camargo** [More info](https://www.researchgate.net/profile/Manuel_Camargo4)
 * Resource extension in SIMOD: **Camilo Montenegro**. Portfolio [here](https://ca-montenegro.github.io/)
