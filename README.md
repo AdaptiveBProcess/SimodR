@@ -25,15 +25,6 @@ As an extra element for this thesis project, per input log in XES format, is req
 </resourcesCost>
 ```
 
-
-## Execution steps without Anaconda
-```
-git clone https://github.com/AdaptiveBProcess/SimodR_V2.git
-cd SimodR_V2
-pip install -r requirements.txt
-python main.py
-```
-
 ## Execution steps with Anaconda 
 ### Using terminal
 ```
