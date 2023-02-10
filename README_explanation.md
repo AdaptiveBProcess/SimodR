@@ -47,7 +47,7 @@ python main.py
 
 However, if you want to run optimization of multiple event logs with different optimization targets, you can use generateStats.py. In this script you need to specify the different optimization targets and policy as follows:
 
-```json
+```
 optimizer = { 
             'no policy': {
                     'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':0},
@@ -73,13 +73,13 @@ Each key in that dictionary corresponds to a certain policy to be executed in Si
 
 For example, if you want to optimize the cost using the Cooperation policy, assign the following values.
 
-```json
+```
 cost : {'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':1}
 ```
 
 In addition, if you want to execute multiobjective optimization, you assign to cost -1, to flow_time -1 and waiting_time -1.
 
-```json
+```
 multiobjective : {'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':1, 'cooperation':0}
 ```
 
