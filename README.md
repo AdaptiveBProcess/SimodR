@@ -24,6 +24,7 @@ As an extra element for this thesis project, per input log in XES format, is req
 </resourcesCost>
 ```
 
+<<<<<<< HEAD
 
 ### Execution steps without Anaconda
 ```
@@ -34,6 +35,10 @@ python main.py
 
 ### Execution steps with Anaconda 
 #### Using terminal
+=======
+## Execution steps with Anaconda 
+### Using terminal
+>>>>>>> c49780434acd69a9018a38955b99daa94854642b
 ```
 cd Simod_recursos_scylla
 conda env create -f SimodResourcesEnv.yml (For Windows OS)
