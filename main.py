@@ -200,7 +200,7 @@ def objective(params):
                                                                    quantity_by_cost=int(settings['quantity_by_cost']),
                                                                    reverse_cost=settings['reverse'],
                                                                    happy_path=happy_path, graph_roles_flag=graph_roles_flag)
-
+                print('Printing xml scylla parameters')
                 xml_scylla.print_parameters(os.path.join(settings['output'],
                                                          settings['file'].split('.')[0] + '.bpmn'),
                                             os.path.join(settings['output'],
@@ -208,6 +208,7 @@ def objective(params):
                                             parameters['scylla'])
 
                 if simulation:
+                    print('Simulation is True')
 
                     for rep in range(int(settings['repetitions'])):
                         print("Experiment #" + str(rep + 1))
@@ -243,6 +244,7 @@ def objective(params):
                     break
             if optimization:
                 # Find global optimal
+                print('Optimization is true')
                 min_val = 1000000000000000000
                 optimal_key = 0
                 max_val = 0
@@ -271,6 +273,7 @@ def objective(params):
                       str(optimal_val), unit, 'found in configuration k =', str(optimal_k), 'and in iteration:',
                       str(optimal_key), '---')
                 if graph_opti:
+                    print('Graph Opti')
                     graph_kpi_path = list(os.path.split(settings['output']))
                     csv_kpi_path = [graph_kpi_path[0], 'kpiResultsTable.csv']
                     csv_kpi_path = os.path.join(*csv_kpi_path)

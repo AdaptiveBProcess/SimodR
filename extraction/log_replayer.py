@@ -27,23 +27,23 @@ def replay(process_graph, log,resource_table, source='log', run_num=0):
             next_node = find_task_node(process_graph,trace[i]['task'])
             # If loop management
             if next_node == cursor[-1]:
-                prev_record = find_previous_record(trace_times, process_graph.node[next_node]['name'])
+                prev_record = find_previous_record(trace_times, process_graph._node[next_node]['name'])
                 trace_times.append(create_record(trace, i, prev_record))
-                process_graph.node[next_node]['executions'] += 1
+                process_graph._node[next_node]['executions'] += 1
             else:
                 try:
                     cursor, prev_node = update_cursor(next_node, process_graph, cursor)
                     #----time recording------
-                    prev_record = find_previous_record(trace_times, process_graph.node[prev_node]['name'])
+                    prev_record = find_previous_record(trace_times, process_graph._node[prev_node]['name'])
                     trace_times.append(create_record(trace, i, prev_record))
-                    process_graph.node[next_node]['executions'] += 1
+                    process_graph._node[next_node]['executions'] += 1
                     #------------------------
                 except:
                     is_conformant = False
                     break
                 for element in reversed(cursor[:-1]):
                     # Process AND
-                    if process_graph.node[element]['type'] == 'gate3':
+                    if process_graph._node[element]['type'] == 'gate3':
                         gate = [d for d in temp_gt_exec if d['nod_num'] == element][0]
                         gate.update(dict(executed= gate['executed'] + 1))
                         if gate['executed'] < gate['num_paths']:
@@ -52,7 +52,7 @@ def replay(process_graph, log,resource_table, source='log', run_num=0):
                             removal_allowed = True
                             cursor.remove(element)
                     # Process Task
-                    elif process_graph.node[element]['type'] == 'task':
+                    elif process_graph._node[element]['type'] == 'task':
                         if (element,next_node) in subsec_set:
                             if removal_allowed:
                                 cursor.remove(element)
@@ -78,7 +78,7 @@ def replay(process_graph, log,resource_table, source='log', run_num=0):
     return conformant_traces, not_conformant_traces, process_stats
 
 def update_cursor(nnode,process_graph,cursor):
-    tasks = list(filter(lambda x: process_graph.node[x]['type']=='task',cursor))
+    tasks = list(filter(lambda x: process_graph._node[x]['type']=='task',cursor))
     shortest_path = list()
     prev_node = 0
     for pnode in reversed(tasks):
@@ -88,7 +88,7 @@ def update_cursor(nnode,process_graph,cursor):
             break
         except nx.NetworkXNoPath:
             pass
-    if len(list(filter(lambda x: process_graph.node[x]['type']=='task',shortest_path))) > 1:
+    if len(list(filter(lambda x: process_graph._node[x]['type']=='task',shortest_path))) > 1:
         raise Exception('Incoherent path')
     ap_list = cursor + shortest_path
     # Preserve order and leave only new
@@ -141,7 +141,7 @@ def calculate_process_metrics(process_stats,resource_table):
 
 def create_subsec_set(process_graph):
     subsec_set = set()
-    task_list = list(filter(lambda x: process_graph.node[x]['type']=='task' , list(nx.nodes(process_graph))))
+    task_list = list(filter(lambda x: process_graph._node[x]['type']=='task' , list(nx.nodes(process_graph))))
     for task in task_list:
         next_tasks = sup.reduce_list(find_next_tasks(process_graph, task))
         for n_task in next_tasks:
@@ -150,7 +150,7 @@ def create_subsec_set(process_graph):
 
 def parallel_execution_list(process_graph):
     execution_list = list()
-    para_gates = list(filter(lambda x: process_graph.node[x]['type'] =='gate3',nx.nodes(process_graph)))
+    para_gates = list(filter(lambda x: process_graph._node[x]['type'] =='gate3',nx.nodes(process_graph)))
     for x in para_gates:
         execution_list.append(dict(nod_num=x, num_paths=len(list(process_graph.neighbors(x))), executed=0))
     return execution_list
@@ -158,7 +158,7 @@ def parallel_execution_list(process_graph):
 def find_next_tasks(process_graph, num):
     tasks_list=list()
     for node in process_graph.neighbors(num):
-        if process_graph.node[node]['type']=='task' or process_graph.node[node]['type']=='start' or process_graph.node[node]['type']=='end':
+        if process_graph._node[node]['type']=='task' or process_graph._node[node]['type']=='start' or process_graph._node[node]['type']=='end':
             tasks_list.append([node])
         else:
             tasks_list.append(find_next_tasks(process_graph, node))
@@ -167,7 +167,7 @@ def find_next_tasks(process_graph, num):
 #Modificado. Se puso el de la versión actual.
 def find_task_node(model: iter, task_name: str) -> int:
         resp = list(filter(
-            lambda x: model.node[x]['name'] == task_name, model.nodes))
+            lambda x: model._node[x]['name'] == task_name, model.nodes))
         if len(resp) > 0:
             resp = resp[0]
         else:

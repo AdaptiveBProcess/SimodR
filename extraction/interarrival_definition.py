@@ -48,7 +48,7 @@ def find_inter_arrival(tasks, conformed_traces):
 def extract_target_tasks(process_graph, num):
 	tasks_list=list()
 	for node in process_graph.neighbors(num):
-		if process_graph.node[node]['type']=='task' or process_graph.node[node]['type']=='start' or process_graph.node[node]['type']=='end':
+		if process_graph._node[node]['type']=='task' or process_graph._node[node]['type']=='start' or process_graph._node[node]['type']=='end':
 			tasks_list.append([node])
 		else:
 			tasks_list.append(extract_target_tasks(process_graph, node))
@@ -67,7 +67,7 @@ def find_tasks_predecesors(process_graph,num):
 def analize_first_tasks(process_graph):
 	tasks_list = list()
 	for node in process_graph.nodes:
-		if process_graph.node[node]['type']=='task':
+		if process_graph._node[node]['type']=='task':
 			tasks_list.append(find_tasks_predecesors(process_graph,node))
 	in_tasks = list()
 	i=0
@@ -75,7 +75,7 @@ def analize_first_tasks(process_graph):
 		sup.print_progress(((i / (len(tasks_list)-1))* 100),'Defining inter-arrival rate ')
 		for path in task['sources']:
 			for in_task in path['in_tasks']:
-				if process_graph.node[in_task]['type']=='start':
-					in_tasks.append(process_graph.node[task['task']]['name'])
+				if process_graph._node[in_task]['type']=='start':
+					in_tasks.append(process_graph._node[task['task']]['name'])
 		i+=1
 	return list(set(in_tasks))

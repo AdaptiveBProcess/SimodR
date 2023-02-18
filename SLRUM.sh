@@ -8,7 +8,7 @@
 #SBATCH	-n 1
 #SBATCH	--cpus-per-task=32
 #SBATCH	--mem-per-cpu=16000
-#SBATCH	--time=144:00:00
+#SBATCH	--time=288:00:00
 #SBATCH -o logs_job_%j.txt
 #
 # ########################################################################################

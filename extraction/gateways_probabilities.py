@@ -15,9 +15,9 @@ def define_probabilities(process_graph,bpmn,log, type):
     gateways=normalize_probabilities(process_graph,gateways)
     for gateway in gateways:
         # print("gateway prob", process_graph.node[gateway['gate']]['id'])
-        gatewayId = process_graph.node[gateway['gate']]['id']
+        gatewayId = process_graph._node[gateway['gate']]['id']
         for path in gateway['targets']:
-            sequence_id = bpmn.find_sequence_id(process_graph.node[gateway['gate']]['id'],process_graph.node[path['out_node']]['id'])
+            sequence_id = bpmn.find_sequence_id(process_graph._node[gateway['gate']]['id'],process_graph._node[path['out_node']]['id'])
             response.append(dict(gatewayid=gatewayId,elementid=sequence_id,prob=path['probability']))
     sup.print_done_task()
     return response
@@ -35,7 +35,7 @@ def normalize_probabilities(process_graph,gateways):
 def extract_target_tasks(process_graph, num):
     tasks_list=list()
     for node in process_graph.neighbors(num):
-        if process_graph.node[node]['type']=='task' or process_graph.node[node]['type']=='start' or process_graph.node[node]['type']=='end':
+        if process_graph._node[node]['type']=='task' or process_graph._node[node]['type']=='start' or process_graph._node[node]['type']=='end':
             tasks_list.append([node])
         else:
             tasks_list.append(extract_target_tasks(process_graph, node))
@@ -60,7 +60,7 @@ def analize_gateway_structure(process_graph, gate_num):
 def analize_gateways(process_graph,log):
     nodes_list = list()
     for node in process_graph.nodes:
-        if process_graph.node[node]['type']=='gate':
+        if process_graph._node[node]['type']=='gate':
             nodes_list.append(analize_gateway_structure(process_graph,node))
 
     i=0
@@ -74,7 +74,7 @@ def analize_gateways(process_graph,log):
         for path in node['targets']:
             ocurrences = 0
             for out_task in path['out_tasks']:
-                ocurrences += process_graph.node[out_task]['executions']
+                ocurrences += process_graph._node[out_task]['executions']
             path['ocurrences'] = ocurrences
             total_ocurrences += path['ocurrences']
         for path in node['targets']:
@@ -90,7 +90,7 @@ def analize_gateways(process_graph,log):
 def analize_gateways_random(process_graph,log):
     nodes_list = list()
     for node in process_graph.nodes:
-        if process_graph.node[node]['type']=='gate':
+        if process_graph._node[node]['type']=='gate':
             nodes_list.append(analize_gateway_structure(process_graph,node))
     i=0
     for node in nodes_list:
@@ -104,7 +104,7 @@ def analize_gateways_random(process_graph,log):
 def analize_gateways_equi(process_graph,log):
     nodes_list = list()
     for node in process_graph.nodes:
-        if process_graph.node[node]['type']=='gate':
+        if process_graph._node[node]['type']=='gate':
             nodes_list.append(analize_gateway_structure(process_graph,node))
     i=0
     for node in nodes_list:

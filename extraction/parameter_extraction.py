@@ -11,8 +11,9 @@ import networkx as nx
 import itertools
 import hashlib
 import pandas as pd
-import warnings
 
+import warnings
+warnings.filterwarnings("ignore")
 
 # -- Extract parameters --
 def extract_parameters(log, bpmn, process_graph, flag, k, sim_percentage, simulator, quantity_by_cost, reverse_cost,
@@ -210,11 +211,11 @@ def extract_parameters(log, bpmn, process_graph, flag, k, sim_percentage, simula
         elements_data_bimp = list()
         i = 0
         role_not_set = find_resource_role(resource_pool, 'NOT_SET', True)
-        task_list = list(filter(lambda x: process_graph.node[x]['type'] == 'task', list(nx.nodes(process_graph))))
+        task_list = list(filter(lambda x: process_graph._node[x]['type'] == 'task', list(nx.nodes(process_graph))))
         for sim in simulator:
             for task in task_list:
-                task_name = process_graph.node[task]['name']
-                task_id = process_graph.node[task]['id']
+                task_name = process_graph._node[task]['name']
+                task_id = process_graph._node[task]['id']
                 values = list(filter(lambda x: x['task'] == task_name, process_stats))
                 task_processing = [x['processing_time'] for x in values]
 
