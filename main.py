@@ -58,8 +58,10 @@ def simulate(settings, rep):
             "--sim=" + os.path.join(settings['output'], settings['file'].split('.')[0] + 'ScyllaSimuConfig.xml'),
             "--output=" + os.path.join(settings['output'], "scyllaSim_rep_" + str(rep), ""),
             "--enable-bps-logging"]
+    
+    # Timeout of 5 minutes
+    subprocess.call(args, timeout=300)
 
-    subprocess.call(args)
 
 
 def measure_stats(settings, bpmn, rep, resource_table):
@@ -104,7 +106,7 @@ def read_settings(settings):
     settings['flag'] = config.get('EXECUTION', 'flag')
     settings['cooperation_policy'] = config.get('EXECUTION', 'cooperation_policy')
     settings['preference_policy'] = config.get('EXECUTION', 'preference_policy')
-    settings['ns_include'] = bool(config.get('EXECUTION', 'ns_include'))
+    settings['ns_include'] = config.get('EXECUTION', 'ns_include')
     
     settings['k'] = config.get('EXECUTION', 'k')
     settings['sim_percentage'] = config.get('EXECUTION', 'sim_percentage')
@@ -154,7 +156,7 @@ def objective(params):
 
     graph_opti = True if settings['graph_optimization'] == 'True' else False
     graph_roles_flag = True if settings['graph_roles_flag'] == 'True' else False
-    ns_include = True if settings['ns_include'] == 'True' else False
+    ns_include = True if 'True' in str(settings['ns_include']) else False
     
     for f in settings['flag'].split(","):
         f = int(f)
@@ -208,8 +210,6 @@ def objective(params):
                                             parameters['scylla'])
 
                 if simulation:
-                    print('Simulation is True')
-
                     for rep in range(int(settings['repetitions'])):
                         print("Experiment #" + str(rep + 1))
                         try:

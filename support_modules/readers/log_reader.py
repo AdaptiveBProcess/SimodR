@@ -72,7 +72,6 @@ class LogReader(object):
         temp_data = list()
         tree = ET.parse(filename)
         root = tree.getroot()
-        #ns_include = False
         if ns_include:
             ns = {'xes': root.tag.split('}')[0].strip('{')}
             tags = dict(trace='xes:trace',string='xes:string',event='xes:event',date='xes:date',resources='xes:resource',happyPath='xes:happyPath',activity = 'xes:activity')

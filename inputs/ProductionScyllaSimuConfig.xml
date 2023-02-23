@@ -1,5 +1,5 @@
 <ns0:definitions xmlns:ns0="http://bsim.hpi.uni-potsdam.de/scylla/simModel" targetNamespace="http://www.hpi.de">
-  <ns0:simulationConfiguration id="qbp_a2ce9fa4-0607-4ec1-9b6f-0e597eba15ad" processInstances="7" processRef="proc_11003494" resourceAssignmentOrder="priority,simulationTime" startDateTime="2017-08-14T08:00:00.000Z">
+  <ns0:simulationConfiguration id="qbp_8f5d761c-3360-43fd-8317-27cf151fe084" processRef="proc_11003494" processInstances="7" startDateTime="2017-08-14T08:00:00.000Z" resourceAssignmentOrder="priority,simulationTime">
     <ns0:task id="node_4977e8c5-5d85-4204-8493-145284ba66e4" name="Setup">
       <ns0:duration timeUnit="SECONDS">
         <ns0:constantDistribution>
@@ -7,37 +7,37 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce1" />
+        <ns0:resource id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce6" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_1dbfcafd-a3f6-4f5d-b870-21d8ded8f52b" name="Turning &amp; Milling Q.C.">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
-          <ns0:mean>0</ns0:mean>
+          <ns0:mean>5397.7</ns0:mean>
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e6" />
+        <ns0:resource id="qbp_cd2cd609-c902-4062-9684-ae7628f971e62" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_0a9be008-a2c1-4c45-a809-22ddde0e1339" name="Turning">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
-          <ns0:mean>0</ns0:mean>
+          <ns0:mean>15180.0</ns0:mean>
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce1" />
+        <ns0:resource id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce4" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_86bdb2f4-c89f-4685-a75c-849c08fe8c8a" name="Milling">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
-          <ns0:mean>0</ns0:mean>
+          <ns0:mean>25200.0</ns0:mean>
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_2a2f4423-58bc-41ab-b59c-9dacbd788623" />
+        <ns0:resource id="qbp_cd2cd609-c902-4062-9684-ae7628f971e63" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_9530a8c6-717d-4e37-948b-4fac18cf6933" name="Packing">
@@ -47,17 +47,17 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_1ce2a1ba-c63e-4e7a-a6ce-3f316822c720" />
+        <ns0:resource id="qbp_1ce2a1ba-c63e-4e7a-a6ce-3f316822c7201" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_32635f9d-54f6-4dd6-9dfc-eb2dab3bab5b" name="Final Inspection Q.C.">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
-          <ns0:mean>0</ns0:mean>
+          <ns0:mean>6569.4</ns0:mean>
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e64" />
+        <ns0:resource id="qbp_cd2cd609-c902-4062-9684-ae7628f971e62" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_f61d7ad8-af2e-42ba-99d1-537aefd62ff0" name="Milling Q.C.">
@@ -67,7 +67,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e63" />
+        <ns0:resource id="qbp_cd2cd609-c902-4062-9684-ae7628f971e63" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_c4ebfb25-7465-42f3-a543-55db245908c3" name="Fix">
@@ -77,7 +77,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c03" />
+        <ns0:resource id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce10" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_0b3ac45e-9104-43f2-9c29-082b8fa1183d" name="Final Inspection">
@@ -87,7 +87,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e6" />
+        <ns0:resource id="qbp_cd2cd609-c902-4062-9684-ae7628f971e6" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_d2b45d4f-e82f-43b4-87cf-3d4470e6bb89" name="Round Grinding">
@@ -98,7 +98,7 @@
         </ns0:normalDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c02" />
+        <ns0:resource id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c04" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_e22326ac-a3de-4eff-8ce5-b7f3dba4cc92" name="Lapping">
@@ -109,7 +109,7 @@
         </ns0:normalDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="QBP_DEFAULT_RESOURCE" />
+        <ns0:resource id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce9" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_2ac666a9-9ba4-4980-a9fe-c1f05a393d6c" name="Rework Milling">
@@ -119,7 +119,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce" />
+        <ns0:resource id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c01" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_9815033a-430d-47db-9505-87518e8068c4" name="Turning Rework">
@@ -129,17 +129,17 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_195d210f-ab53-4867-a943-647a10d201f9" />
+        <ns0:resource id="qbp_195d210f-ab53-4867-a943-647a10d201f9" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_60858229-fbc4-4a03-af61-4244e3f66c36" name="Grinding Rework">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
-          <ns0:mean>0</ns0:mean>
+          <ns0:mean>7026.9</ns0:mean>
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c02" />
+        <ns0:resource id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c05" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_aefb6f34-75bc-4903-af6d-f7a314393f8b" name="Round  Q.C.">
@@ -149,7 +149,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e6" />
+        <ns0:resource id="qbp_cd2cd609-c902-4062-9684-ae7628f971e6" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_2c2036be-42ad-4261-8776-e19633b2acf2" name="Turning &amp; Milling">
@@ -160,17 +160,17 @@
         </ns0:normalDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c06" />
+        <ns0:resource id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c06" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_a4d86660-d150-438f-9535-42e53c72540f" name="Laser Marking">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
-          <ns0:mean>0</ns0:mean>
+          <ns0:mean>3565.1</ns0:mean>
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_81e1b599-8e08-4d9b-9d37-65d4bdb6471d" />
+        <ns0:resource id="qbp_a2c94458-f865-4adf-8386-d65dbfc9b5c02" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_786e66f2-68c2-4c78-942e-5a357478002e" name="Nitration Q.C.">
@@ -180,7 +180,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e63" />
+        <ns0:resource id="QBP_DEFAULT_RESOURCE" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_92836733-abf1-4720-822d-47ce88787291" name="Stress Relief">
@@ -190,37 +190,37 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_ff21a636-a2c3-49ac-a735-8c660de068ac" />
+        <ns0:resource id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce1" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_1e0cb3b4-9a04-44a3-952a-05e70da4f0e9" name="Change Version">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
-          <ns0:mean>0</ns0:mean>
+          <ns0:mean>29505.0</ns0:mean>
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_cbdcfa9e-9b1b-449f-9b80-3a224d148d991" />
+        <ns0:resource id="qbp_1ce2a1ba-c63e-4e7a-a6ce-3f316822c720" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_670a2320-3f6e-452d-b911-5f0416aea8bc" name="Turning Q.C.">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
-          <ns0:mean>0</ns0:mean>
+          <ns0:mean>3711.4</ns0:mean>
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_cd2cd609-c902-4062-9684-ae7628f971e64" />
+        <ns0:resource id="qbp_195d210f-ab53-4867-a943-647a10d201f9" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_b809d163-89fe-4b8f-8810-79a5f3c3530d" name="Flat Grinding">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
-          <ns0:mean>0</ns0:mean>
+          <ns0:mean>4957.9</ns0:mean>
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_59afaa8b-39e2-4760-952c-bf35108f3c671" />
+        <ns0:resource id="qbp_5d019f85-b445-45d6-a350-6e439f13370a" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_1b7d0c56-078f-4bd9-b086-f86bf8c82e1a" name="Turn &amp; Mill. &amp; Screw Assem">
@@ -230,7 +230,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce5" />
+        <ns0:resource id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce7" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_2943c059-b20c-4922-ae45-298e9d4e2c3b" name="SETUP     Turning &amp; Milling">
@@ -240,7 +240,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce1" />
+        <ns0:resource id="qbp_eee83f22-4c87-419d-afc9-8e149cc9a8ce1" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_04e4b193-f558-4278-aa9d-bf569bad1eea" name="End">
@@ -250,7 +250,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="QBP_DEFAULT_RESOURCE" />
+        <ns0:resource id="QBP_DEFAULT_RESOURCE" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_85c077c5-6e91-4f8d-821d-4a9a2e7fae99" name="Start">
@@ -260,7 +260,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource amount="1" id="QBP_DEFAULT_RESOURCE" />
+        <ns0:resource id="QBP_DEFAULT_RESOURCE" amount="1" />
       </ns0:resources>
     </ns0:task>
     <ns0:exclusiveGateway id="node_f9a40d92-4248-40db-83f6-913f1e55bec6">
