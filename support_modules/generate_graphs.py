@@ -73,7 +73,8 @@ def generate_graphs_exps():
                 ax.bar_label(i,)
         plt.grid()
         plt.title('{} : Multiobjective Optimization by Allocation Policy'.format(input_log))
-        plt.title('Normalized Metric Value')
+        plt.ylabel('Normalized Metric Value')
+        plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
         fig.savefig('stats/graphs/{}/Multiobjective optimization by Allocation Policy.png'.format(input_log), bbox_inches='tight', dpi=150)
     except:
         pass
@@ -93,6 +94,7 @@ def generate_graphs_exps():
         for policy in df_exp3['Policy'].drop_duplicates():
             if policy != 'Baseline':
                 df_policy = df_exp3[df_exp3['Policy'].isin([policy, 'Baseline'])]
+                df_policy = df_policy.round({'Performance Metric Value':3})
                 fig = plt.figure(figsize=(10, 6))
                 graph_title = 'Comparison of metrics between Role-based allocation (Baseline) and Resource-based allocation (No policy)'.format(input_log, policy.capitalize().replace('_', ' '))
                 ax = sns.barplot(x="Optimization", y="Normalized Metric Value", hue="Metric", data=df_policy)
@@ -101,6 +103,7 @@ def generate_graphs_exps():
                 plt.grid()
                 plt.title(graph_title)
                 plt.xlabel('Single-objective (SO) vs Multi-objective (MO) optimization')
+                plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
                 fig.savefig('stats/graphs/{}/Comparison of metrics between Baseline and No policy.png'.format(input_log), bbox_inches='tight', dpi=150)
     except:
         pass
