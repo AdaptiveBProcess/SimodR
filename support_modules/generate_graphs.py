@@ -52,8 +52,9 @@ def generate_graphs_exps():
                 ax.bar_label(i,)
             plt.grid()
             plt.title(graph_title)
-            ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), fancybox=True, shadow=True, ncol=5)
+            ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
+        fig.tight_layout()
         fig.savefig('stats/graphs/{}/Trade-Off in Optimizations.png'.format(input_log), bbox_inches='tight', dpi=150)
     except:
         pass
@@ -88,13 +89,12 @@ def generate_graphs_exps():
             df_exp3_[col] = df_exp3_[col]/max_col
             
         df_exp3 = pd.melt(df_exp3_, id_vars=['Log', 'Policy', 'Optimization'], value_vars=['Cost', 'Flow time', 'Waiting','Workload'], var_name = 'Metric', value_name='Normalized Metric Value')
-        df_exp3 = df_exp3.round({'Performance Metric Value':3})
+        df_exp3 = df_exp3.round({'Normalized Metric Value':3})
         df_exp3['Optimization'] = df_exp3['Optimization'].apply(lambda x: x + ' MO' if x == 'Multiobjective' else x + ' SO')
 
         for policy in df_exp3['Policy'].drop_duplicates():
             if policy != 'Baseline':
                 df_policy = df_exp3[df_exp3['Policy'].isin([policy, 'Baseline'])]
-                df_policy = df_policy.round({'Performance Metric Value':3})
                 fig = plt.figure(figsize=(10, 6))
                 graph_title = 'Comparison of metrics between Role-based allocation (Baseline) and Resource-based allocation (No policy)'.format(input_log, policy.capitalize().replace('_', ' '))
                 ax = sns.barplot(x="Optimization", y="Normalized Metric Value", hue="Metric", data=df_policy)
