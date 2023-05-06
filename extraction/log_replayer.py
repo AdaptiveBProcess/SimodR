@@ -171,5 +171,6 @@ def find_task_node(model: iter, task_name: str) -> int:
         if len(resp) > 0:
             resp = resp[0]
         else:
+            print(task_name, [model._node[x]['name'] for x in model.nodes])
             raise Exception('Task not found on bpmn structure jorge...')
         return resp

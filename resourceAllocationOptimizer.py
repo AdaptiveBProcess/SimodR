@@ -435,9 +435,15 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
   resources_number=len(resources_dictionary)
   
   population = create_solutions( chromosome_length,starting_population_size, resources_number)
+  initial_time = time.time()
   
   for generation in range(maximum_generation):
-  #while convergence<=10:  
+  #while convergence<=10:
+
+      elapsed_time = time.time() - initial_time
+
+      if elapsed_time > 86400:
+         break
      
       print('Generation:'+str(generation)+ ' of: '+str(maximum_generation))
       print('****************************************************************************************************')
@@ -458,10 +464,7 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
       printProgressBar(0, 100, prefix = 'Progress:', suffix = 'Complete', length = 100)
 
       
-      #Factibilidad // Viabilidad
-      
-      
-      
+      #Factibilidad // Viabilidad      
       randomly_mutate_population(population,mutation_probability) 
      
 
@@ -475,8 +478,6 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
       # Build pareto front
       population = build_pareto_population(population, scores, minimum_population_size, maximum_population_size)
       
-             
-      
       # Breed
       print("Starting breeding...")
       population = breed_population(population)
@@ -485,9 +486,7 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
 
       fronts_dictionary={}
       print("Built pareto front")
-      
-              
-      
+
       gc.collect()
       
       
@@ -661,7 +660,8 @@ def calculate_fitness(solution):
   
        i=0
        if str(solution)!="BASELINE":
-         
+
+
          for child in activities:
            if child.get('name')!="Start" and child.get('name')!="End" :
                child.find('{http://bsim.hpi.uni-potsdam.de/scylla/simModel}resources')[0].set('id',resources_dictionary[int(solution[i])])
@@ -678,9 +678,9 @@ def calculate_fitness(solution):
       
        args = ['java', '-jar', 'external_tools/ScyllaNew/Scylla_V6.jar',"--config="+global_config_name,"--bpmn="+'inputs/'+log+".bpmn","--sim="+sim_config_name,"--output={}/".format(output_file_name),"--enable-bps-logging"]
        #subprocess.call(args,shell=True,stdout=subprocess.PIPE)
-       subprocess.call(args,stdout=subprocess.PIPE)
-       duration= int(round(time.time() * 1000))-starting_time
-     #  print('SIMULATION FINISHED, duration='+str(duration))
+       subprocess.call(args, stdout=subprocess.PIPE)
+       #duration= int(round(time.time() * 1000))-starting_time
+       #print('SIMULATION FINISHED, duration='+str(duration))
 
        
        starting_time = int(round(time.time() * 1000))
@@ -848,8 +848,7 @@ def calculate_cooperation(solution):
 #Exportar un csv
 #Relajar las restricciones
 
-logs=['Production','PurchasingExample']
-rpath = '/hpcfs/apps/conda4.12.0/envs/r-3.6.3/bin/Rscript'
+rpath = '/usr/bin/Rscript'
 
 
 def read_parameters(input_log, input_nonrepeated_resources,input_cost,input_workload,input_flow_time,input_waiting_time,input_preference_policy,input_cooperation_policy):
@@ -1075,7 +1074,7 @@ def read_parameters(input_log, input_nonrepeated_resources,input_cost,input_work
                     if not path.exists('inputs/'+log+'_cooperationMatrix.csv'):
                         print('Calculating cooperation. This could take few minutes.')
                         args = [rpath, '--vanilla', 'support_modules/matrix_processing/CooperationPolicy.R','inputs/'+log]
-                        process = subprocess.Popen(args, stdout=subprocess.PIPE, stdin=subprocess.PIPE, shell=True)
+                        process = subprocess.call(args, stdout=subprocess.PIPE, stdin=subprocess.PIPE, shell=True)
                         stdout, stderr = process.communicate()
                         
                         #subprocess.call(args,shell=True,stdout=subprocess.PIPE)

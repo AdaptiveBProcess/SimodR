@@ -9,7 +9,7 @@ package.check <- lapply(
   packages,
   FUN = function(x) {
     if (!require(x, character.only = TRUE)) {
-      install.packages(x,repos = "http://cran.us.r-project.org", dependencies = TRUE, INSTALL_opts = c('--no-lock'))
+      install.packages(x, repos = "http://cran.rstudio.com", dependencies = TRUE, INSTALL_opts = c('--no-lock'))
       library(x, character.only = TRUE)
     }
   }
@@ -126,7 +126,7 @@ getVecinos<-function(actual){
 
 
 
-#Creación de matriz de actividades
+#Creaciï¿½n de matriz de actividades
 for(i in 1:length(listaArcos[,1])){
   if(isTask(listaArcos[i,'sourceRef']) && isTask(listaArcos[i,'targetRef']) ){
     
@@ -193,11 +193,11 @@ for(j in 1:length(listaArcosTaskFirst[,1])){
 }
 
 
-#Hasta aquí todo va bien
+#Hasta aquï¿½ todo va bien
 
 #PROM
 
-#Extraer martriz de cooperación
+#Extraer martriz de cooperaciï¿½n
 namesDictionary=data.frame()
 for(i in 1:length(elements[,1])){
   actual=elements[i,]
@@ -208,7 +208,7 @@ for(i in 1:length(elements[,1])){
 }
 #ARRIBA TA EL LIO
 
-#REVISAR POR QUÉ EL PRIMERO DA MAL
+#REVISAR POR QUï¿½ EL PRIMERO DA MAL
 #listaArcosEfectivos=listaArcosEfectivos[-c(1:11)]
 df=as.data.frame(logFile)
 
@@ -304,7 +304,7 @@ for(i in 1:length(listaArcosEfectivos)){
   sumaTotal=sum(matrizActual)
   for(j in resourcesNames){
     for(k in resourcesNames){
-      #HAY UN ERROR, LA PROBABILIDAD POR RECURSO ESTÁ MAL CALCULADA (?), SERÁ NECESARIO LEERLA DEL LOG
+      #HAY UN ERROR, LA PROBABILIDAD POR RECURSO ESTï¿½ MAL CALCULADA (?), SERï¿½ NECESARIO LEERLA DEL LOG
       
       
       dictionaryIndexSource=which(namesDictionary$id==source)
@@ -333,13 +333,13 @@ for(i in 1:length(listaArcosEfectivos)){
       
     }
   }
-  #Esto pa qué era?
+  #Esto pa quï¿½ era?
  # matrizActual[sourceResource,targetResource]=matrizActual[sourceResource,targetResource]+1
   assign(paste(source,target,sep="::"),matrizActual)
   
 }
 
-#Cálculo correlaciones
+#Cï¿½lculo correlaciones
 matrizCooperaciones=matrizResultado
 for(i in 1:length(matrizCooperaciones[,1])){
   for(j in 1:length(matrizCooperaciones[1,])){
@@ -357,5 +357,5 @@ for(i in 1:length(listaArcosEfectivos)){
 
 write.csv(matrizCooperaciones,paste(logPath,"_cooperationMatrix.csv",sep=""))
 
-#Dashboard a nivel de procesos. Muestra resultados cada vez que se cambie una política. Preferiblemente cargar datos guardados. FO, POLITICA, CLUSTERING
+#Dashboard a nivel de procesos. Muestra resultados cada vez que se cambie una polï¿½tica. Preferiblemente cargar datos guardados. FO, POLITICA, CLUSTERING
 

@@ -1,4 +1,0 @@
-,0,avg_costxhour,costxhour,dif_timestamp,idTask,lenRole,quantity,resource,role,roleID,role_ID,schedule,task
-0,Activity table: Activities grouped by K frequent resources,,,,,,,,,,,,
-0,,18.0,,,0.0,1.0,[1],['ID4132'],Role 1,,Role_1,,Turning & Milling
-0,,18.0,18.0,18660.0,,,,ID4132,Role 1,Role_1,,"{'work_days': [1, 1, 1, 1, 1, 0, 0], 'start_hour': datetime.datetime(1900, 1, 1, 9, 0), 'end_hour': datetime.datetime(1900, 1, 1, 17, 0)}",

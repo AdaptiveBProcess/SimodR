@@ -8,28 +8,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 from support_modules import generate_graphs as gg
+from glob import glob
 
 """
-input_log = 'PurchasingExample'
-time_format = '%Y-%m-%dT%H:%M:%S.000'
-ns_include = True
-#"""
-
-"""
-input_log = 'Production'
-time_format = '%Y-%m-%dT%H:%M:%S'
-ns_include = False
-#"""
-
-"""
-input_log = 'ConsultaDataMining201618'
-time_format = '%Y-%m-%dT%H:%M:%S'
-ns_include = False
-#"""
-
 iterations = [{ 'input_log' : 'PurchasingExample', 'time_format' : '%Y-%m-%dT%H:%M:%S.000', 'ns_include' : True},
               { 'input_log' : 'Production', 'time_format' : '%Y-%m-%dT%H:%M:%S', 'ns_include' : False},
               { 'input_log' : 'ConsultaDataMining201618', 'time_format' : '%Y-%m-%dT%H:%M:%S', 'ns_include' : False}]
+"""
+
+iterations = [{ 'input_log' : 'ConsultaDataMining201618', 'time_format' : '%Y-%m-%dT%H:%M:%S', 'ns_include' : False}]
 
 """
 Parameters used to get the stats reported in the thesis.
@@ -39,27 +26,29 @@ individuos = 40000
 
 def generate_stats(input_log, time_format, ns_include):
 
-    #"""
+    #""" Flowtime y cost
     
     optimizer = { 
-            'no policy': {
-                    'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':0},
-                    'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':0, 'cooperation':0},
-                    'waiting_time':{'cost':  0, 'workload': 0, 'flow_time':  0, 'waiting_time': -1, 'preference':0, 'cooperation':0},
-                    'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':0, 'cooperation':0}
-                    },
-            'preference' : {
-                    'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':1, 'cooperation':0},
+            """'preference' : {
                     'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':1, 'cooperation':0},
                     'waiting_time':{'cost':  0, 'workload': 0, 'flow_time':  0, 'waiting_time': -1, 'preference':1, 'cooperation':0},
+                    'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':1, 'cooperation':0},
                     'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':1, 'cooperation':0}
                     },
-            'cooperation' : {
+            
+           'cooperation' : {
                     'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':1},
-                    'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':0, 'cooperation':1},
                     'waiting_time':{'cost':  0, 'workload': 0, 'flow_time':  0, 'waiting_time': -1, 'preference':0, 'cooperation':1},
-                    'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':0, 'cooperation':1}
-                    }     
+                    'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':0, 'cooperation':1},
+                    'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':0, 'cooperation':1}
+                    },
+	        """
+             'no policy': {
+                    #'waiting_time':{'cost':  0, 'workload': 0, 'flow_time':  0, 'waiting_time': -1, 'preference':0, 'cooperation':0},
+                    #'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':0},
+                    #'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':0, 'cooperation':0},
+                    'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':0, 'cooperation':0}
+                    }
     }
     
     generations = 100
@@ -70,19 +59,17 @@ def generate_stats(input_log, time_format, ns_include):
     """
      
     optimizer = { 
-            'no policy': {
-                    'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':0}
-                    }       
+            'preference' : {
+                    'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':1, 'cooperation':0},
+                    }  
     } 
     
-    generations = 7
+    generations = 3
     initial_population = 5    
     min_population = 5
-    max_population = 100
+    max_population = 10
     
     #"""
-    
-    data = []
     
     for policy in optimizer:
         for optimization in optimizer[policy]:
@@ -105,16 +92,23 @@ def generate_stats(input_log, time_format, ns_include):
             with open('config.ini', 'w') as file:
                 file.write(text)
                 
-            os.system('python main.py')
-    
+            files = [x for x in glob('inputs/*') if x.split('.')[-1] not in ['bpmn', 'json', 'xes', 'csv']]
+            for file in files:
+                os.remove(file)
+
+            os.system('python3 main.py')
+"""    
 for iteration in iterations:
   input_log = iteration['input_log']
   time_format = iteration['time_format'] 
   ns_include = iteration['ns_include']  
   generate_stats(input_log, time_format, ns_include)
-
+"""
+  
 print('Generating graphs for experiments')
 gg.generate_graphs_exps()
+
+
 
 
 
