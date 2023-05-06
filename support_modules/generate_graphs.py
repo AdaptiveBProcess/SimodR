@@ -7,9 +7,9 @@ import os
 
 
 def generate_graphs_exps():
-  print(os.getcwd())
-  files = glob('stats/*.csv')
-  input_logs = list(set([x.split('/')[-1].split('_')[0] for x in files]))
+
+  files = glob('stats/stats_files/*.csv')
+  input_logs = list(set([x.split('\\')[-1].split('_')[0] for x in files]))
 
   for input_log in input_logs:
       
@@ -33,21 +33,28 @@ def generate_graphs_exps():
     multiobjective_mat = results_mat[results_mat['Optimization'] == 'Multiobjective']
     df_results = pd.melt(data_df, id_vars=id_vars, value_vars=value_vars, var_name = 'Performance Metric', value_name='Performance Metric Value')
 
+
     try:
         # Graphs for experiment 1
+        fig = plt.figure(figsize=(20, 20))
         df_exp1 = df_results[df_results['Policy'].isin(['No policy', 'Baseline'])]
         df_exp1 = df_exp1.round({'Performance Metric Value':3})
 
-        for metric in df_exp1['Performance Metric'].drop_duplicates():
+        for j, metric in enumerate(df_exp1['Performance Metric'].drop_duplicates()):
+
+            ax = fig.add_subplot(2, 2, j+1)
+
             df_exp1_tmp = df_exp1[df_exp1['Performance Metric'].isin([metric])]
-            fig = plt.figure(figsize=(10, 6))
+            
             graph_title = '{} : Trade-Off in {} metric'.format(input_log, metric.capitalize().replace('_', ' '))
-            ax = sns.barplot(x="Performance Metric", y="Performance Metric Value", hue="Optimization", data=df_exp1_tmp)
+            ax = sns.barplot(ax=ax, x="Performance Metric", y="Performance Metric Value", hue="Optimization", data=df_exp1_tmp)
             for i in ax.containers:
                 ax.bar_label(i,)
             plt.grid()
             plt.title(graph_title)
-            fig.savefig('stats/graphs/{}/Trade-Off in Optimization of {}.png'.format(input_log, metric.capitalize()), bbox_inches='tight', dpi=150)
+            ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), fancybox=True, shadow=True, ncol=5)
+
+        fig.savefig('stats/graphs/{}/Trade-Off in Optimizations.png'.format(input_log), bbox_inches='tight', dpi=150)
     except:
         pass
 
@@ -97,3 +104,5 @@ def generate_graphs_exps():
                 fig.savefig('stats/graphs/{}/Comparison of metrics between Baseline and No policy.png'.format(input_log), bbox_inches='tight', dpi=150)
     except:
         pass
+
+generate_graphs_exps()
