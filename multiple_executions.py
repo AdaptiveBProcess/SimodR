@@ -35,16 +35,16 @@ def generate_stats(input_log, time_format, ns_include):
 	        """
              'no policy': {
                     'waiting_time':{'cost':  0, 'workload': 0, 'flow_time':  0, 'waiting_time': -1, 'preference':0, 'cooperation':0},
-                    'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':0},
-                    'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':0, 'cooperation':0},
-                    'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':0, 'cooperation':0}
+                    #'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':0},
+                    #'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':0, 'cooperation':0},
+                    #'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':0, 'cooperation':0}
                     }
     }
     
-    generations = 100
-    initial_population = 20
-    min_population = 20
-    max_population = 40000
+    generations = 7
+    initial_population = 5
+    min_population = 5
+    max_population = 20
     
     for policy in optimizer:
         for optimization in optimizer[policy]:
@@ -71,7 +71,7 @@ def generate_stats(input_log, time_format, ns_include):
             for file in files:
                 os.remove(file)
 
-            os.system('python3 main.py')
+            os.system('python3 main_simodr.py')
     
 for iteration in iterations:
   input_log = iteration['input_log']

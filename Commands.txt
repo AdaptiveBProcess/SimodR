@@ -1,2 +1,0 @@
-source SimodR/bin/activate
-nohup ./SLRUM.sh & disown

@@ -1,5 +1,5 @@
 <ns0:definitions xmlns:ns0="http://bsim.hpi.uni-potsdam.de/scylla/simModel" targetNamespace="http://www.hpi.de">
-  <ns0:simulationConfiguration id="qbp_c131c693-3d2d-401b-b224-da3c93c54b82" processRef="proc_1501587365" processInstances="7" startDateTime="2017-08-14T08:00:00.000Z" resourceAssignmentOrder="priority,simulationTime">
+  <ns0:simulationConfiguration id="qbp_2e9b8897-8892-4862-b974-1e70603fdb0b" processRef="proc_1501587365" processInstances="7" startDateTime="2017-08-14T08:00:00.000Z" resourceAssignmentOrder="priority,simulationTime">
     <ns0:task id="node_5160b785-95a2-477b-b0df-50c5f411d9b0" name="Transferir creditos homologables">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>

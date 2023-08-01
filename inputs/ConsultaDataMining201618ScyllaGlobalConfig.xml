@@ -1,4 +1,4 @@
-<ns0:globalConfiguration xmlns:ns0="http://bsim.hpi.uni-potsdam.de/scylla/simModel" id="GlobalConf_f17d9521-eba3-41da-9996-3bf7e611b73f" targetNamespace="http://www.hpi.de">
+<ns0:globalConfiguration xmlns:ns0="http://bsim.hpi.uni-potsdam.de/scylla/simModel" id="GlobalConf_ca55e1f0-3cfd-47db-b628-93980d88826f" targetNamespace="http://www.hpi.de">
   <ns0:resourceAssignmentOrder>priority,simulationTime</ns0:resourceAssignmentOrder>
   <ns0:randomSeed>3006</ns0:randomSeed>
   <ns0:timetables>

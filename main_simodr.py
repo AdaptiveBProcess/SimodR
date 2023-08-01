@@ -1,26 +1,14 @@
 import configparser as cp
 import os
 import re
-import subprocess
-import sys
-import time
 from shutil import copyfile
 
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
 from hyperopt import hp
 
 import resourceAllocationOptimizer as resourceOptimization
-from extraction import log_replayer as rpl
-from extraction import parameter_extraction as par
 #Módulos de SIMOD
 from support_modules import support as sup
-from support_modules.readers import bpmn_reader as br  # FIJO
-from support_modules.readers import log_reader as lr
-from support_modules.readers import process_structure as gph  # FIJO
 from support_modules.writers import assets_writer as assets_writer
-from support_modules.writers import xml_writer_scylla as xml_scylla
 
 
 def reformat_path(raw_path):
