@@ -30,6 +30,8 @@ conda activate SimodR
 pip install -r requirements.txt
 ```
 
+Change the "rpath" variable in the resourceAllocationOptimizer.py file to the location where R was installed.
+
 Run SimodR:
 ```
 python main_simodr.py
