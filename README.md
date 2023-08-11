@@ -105,7 +105,7 @@ Besides the modules showed in the previous Architecture image, the project folde
                 - CSV table showing the instances data for the simulation (.csv file)
                 - CSV table showing the overall process Metadata (.csv file)
                 - CSV table showing the resources utilization. Here is possible to see the utilization per role and instances in each role (.csv file)
-- **support_modules/**: Folder that contains the file for generating the graphs            
+**support_modules/**: Folder that contains the file for generating the graphs            
     
 
 ## Authors
