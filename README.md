@@ -32,9 +32,14 @@ pip install -r requirements.txt
 
 Change the "rpath" variable in the resourceAllocationOptimizer.py file to the location where R was installed.
 
-Run SimodR:
+Run SimodR with a single optimization function. The configuration parameters are located in config.ini file:
 ```
 python main_simodr.py
+```
+
+Run SimodR with a more than one optimization function. The configuration parameters are located in multiple_executions.py file:
+```
+python multiple_executions.py
 ```
 
 ## 2. Execution
