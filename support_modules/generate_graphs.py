@@ -7,105 +7,77 @@ import os
 
 
 def generate_graphs_exps():
+    folder_path = '../stats/stats_files'
+    files = []
+    for file in os.listdir(folder_path):
+        if file.endswith('.csv'):
+            files.append(os.path.join(folder_path, file))
+    input_logs = list(set([x.split('\\')[-1].split('_')[0] for x in files]))
+    exp1_df = []
+    exp2_df = []
+    for input_log in input_logs:
+        if not os.path.exists('../stats/graphs/'):
+            os.mkdir('../stats/graphs/')
+        if not os.path.exists('../stats/graphs/{}/'.format(input_log)):
+            os.mkdir('../stats/graphs/{}/'.format(input_log))
+        files_log = [x for x in files if input_log in x]
+        data_df = pd.read_csv(files_log[0], sep=',', decimal=',', index_col=False)
+        for file_log in files_log[1:]:
+            data_df_tmp = pd.read_csv(file_log, sep=',', decimal=',', index_col=False)
+            data_df = pd.concat([data_df, data_df_tmp])
 
-  files = glob('stats/stats_files/*.csv')
-  input_logs = list(set([x.split('\\')[-1].split('_')[0] for x in files]))
+        id_vars, value_vars = ['Log', 'Policy', 'Optimization'], ['Cost', 'Flow time', 'Waiting', 'Workload']
+        data_df['Optimization'] = data_df['Optimization'].str.replace('_', ' ').str.capitalize()
+        data_df[value_vars] = data_df[value_vars].astype(float)
 
-  for input_log in input_logs:
-      
-    print(input_log)
-    
-    if not os.path.exists('stats/graphs/'):
-        os.mkdir('stats/graphs/')
-    if not os.path.exists('stats/graphs/{}/'.format(input_log)):
-        os.mkdir('stats/graphs/{}/'.format(input_log))
-    files_log = [x for x in files if input_log in x]
-    data_df = pd.read_csv(files_log[0], sep=',', decimal=',', index_col=False)
-    for file_log in files_log[1:]:
-        data_df_tmp = pd.read_csv(file_log, sep=',', decimal=',', index_col=False)
-        data_df = pd.concat([data_df, data_df_tmp])
+        results_mat = data_df[data_df['Policy'] != 'Baseline']
+        multiobjective_mat = results_mat[results_mat['Optimization'] == 'Multiobjective']
+        df_results = pd.melt(data_df, id_vars=id_vars, value_vars=value_vars, var_name='Performance Metric',
+                             value_name='Performance Metric Value')
 
-    id_vars, value_vars = ['Log', 'Policy', 'Optimization'], ['Cost', 'Flow time', 'Waiting','Workload']
-    data_df['Optimization'] = data_df['Optimization'].str.replace('_', ' ').str.capitalize()
-    data_df[value_vars] = data_df[value_vars].astype(float)
-
-    results_mat = data_df[data_df['Policy'] != 'Baseline']
-    multiobjective_mat = results_mat[results_mat['Optimization'] == 'Multiobjective']
-    df_results = pd.melt(data_df, id_vars=id_vars, value_vars=value_vars, var_name = 'Performance Metric', value_name='Performance Metric Value')
-
-
-    try:
         # Graphs for experiment 1
-        fig = plt.figure(figsize=(20, 20))
         df_exp1 = df_results[df_results['Policy'].isin(['No policy', 'Baseline'])]
-        df_exp1 = df_exp1.round({'Performance Metric Value':3})
+        df_exp1 = df_exp1.round({'Performance Metric Value': 3})
+        exp1_df.append(df_exp1)
 
-        for j, metric in enumerate(df_exp1['Performance Metric'].drop_duplicates()):
-
-            ax = fig.add_subplot(2, 2, j+1)
-
-            df_exp1_tmp = df_exp1[df_exp1['Performance Metric'].isin([metric])]
-            
-            graph_title = '{} : Trade-Off in {} metric'.format(input_log, metric.capitalize().replace('_', ' '))
-            ax = sns.barplot(ax=ax, x="Performance Metric", y="Performance Metric Value", hue="Optimization", data=df_exp1_tmp)
-            for i in ax.containers:
-                ax.bar_label(i,)
-            plt.grid()
-            plt.title(graph_title)
-            ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-
-        fig.tight_layout()
-        fig.savefig('stats/graphs/{}/Trade-Off in Optimizations.png'.format(input_log), bbox_inches='tight', dpi=150)
-    except:
-        pass
-
-    try:
-        # Graphs for experiment 2
         for col in ['Cost', 'Flow time', 'Waiting', 'Workload']:
             max_col = np.max(multiobjective_mat[col])
-            multiobjective_mat[col] = multiobjective_mat[col]/max_col
+            multiobjective_mat[col] = multiobjective_mat[col] / max_col
+        # Data for experiment 1
+        df_exp2 = pd.melt(multiobjective_mat, id_vars=id_vars, value_vars=value_vars, var_name='Performance Metric',
+                          value_name='Performance Metric Value')
+        df_exp2 = df_exp2.round({'Performance Metric Value': 3})
+        exp2_df.append(df_exp2)
 
-        df_exp2 = pd.melt(multiobjective_mat, id_vars=id_vars, value_vars=value_vars, var_name = 'Performance Metric', value_name='Performance Metric Value')
-        df_exp2 = df_exp2.round({'Performance Metric Value':3})
+    exp2_df = pd.concat(exp2_df, axis=0)
+    exp2_df.replace('ConsultaDataMining201618', 'ACR', inplace=True)
+    exp2_df.replace('Production', 'MP', inplace=True)
+    exp2_df.replace('PurchasingExample', 'P2P', inplace=True)
+    exp2_df.rename(columns={'Performance Metric Value': 'Normalized Metric Value'}, inplace=True)
 
-        fig = plt.figure(figsize=(10, 6))
-        ax = sns.barplot(x="Performance Metric", hue="Policy", y="Performance Metric Value", data=df_exp2)
-        for i in ax.containers:
-                ax.bar_label(i,)
-        plt.grid()
-        plt.title('{} : Multiobjective Optimization by Allocation Policy'.format(input_log))
-        plt.ylabel('Normalized Metric Value')
-        plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-        fig.savefig('stats/graphs/{}/Multiobjective optimization by Allocation Policy.png'.format(input_log), bbox_inches='tight', dpi=150)
-    except:
-        pass
+    exp2_df['Optimization'].replace('Multiobjective', 'Multi O.', inplace=True)
+    sns.set(font_scale=1.4, style='white', palette="tab10")
+    g = sns.catplot(data=exp2_df, col='Log', x="Performance Metric", hue="Policy",
+                    y='Normalized Metric Value', kind='bar',
+                    col_order=['ACR', 'MP', 'P2P'], legend_out=False, legend=False,
+                    sharey=True, sharex=True)
+    g.set(xlabel=None)
+    for ax in g.axes.flat:
+        for label in ax.get_xticklabels():
+            label.set_rotation(40)
+    plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
 
-    try:
-        # Additional graphs for experiments
-        df_exp3_ = data_df.copy()
-        df_exp3_ = df_exp3_[df_exp3_['Policy'].isin(['No policy', 'Baseline'])]
-        for col in ['Cost', 'Flow time', 'Waiting', 'Workload']:
-            max_col = np.max(df_exp3_[col])
-            df_exp3_[col] = df_exp3_[col]/max_col
-            
-        df_exp3 = pd.melt(df_exp3_, id_vars=['Log', 'Policy', 'Optimization'], value_vars=['Cost', 'Flow time', 'Waiting','Workload'], var_name = 'Metric', value_name='Normalized Metric Value')
-        df_exp3 = df_exp3.round({'Normalized Metric Value':3})
-        df_exp3['Optimization'] = df_exp3['Optimization'].apply(lambda x: x + ' MO' if x == 'Multiobjective' else x + ' SO')
+    for ax in g.axes.ravel():
 
-        for policy in df_exp3['Policy'].drop_duplicates():
-            if policy != 'Baseline':
-                df_policy = df_exp3[df_exp3['Policy'].isin([policy, 'Baseline'])]
-                fig = plt.figure(figsize=(10, 6))
-                graph_title = 'Comparison of metrics between Role-based allocation (Baseline) and Resource-based allocation (No policy)'.format(input_log, policy.capitalize().replace('_', ' '))
-                ax = sns.barplot(x="Optimization", y="Normalized Metric Value", hue="Metric", data=df_policy)
-                for i in ax.containers:
-                    ax.bar_label(i,)
-                plt.grid()
-                plt.title(graph_title)
-                plt.xlabel('Single-objective (SO) vs Multi-objective (MO) optimization')
-                plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-                fig.savefig('stats/graphs/{}/Comparison of metrics between Baseline and No policy.png'.format(input_log), bbox_inches='tight', dpi=150)
-    except:
-        pass
+        # add annotations
+        for c in ax.containers:
+            labels = [f'{v.get_height():.2f}' for v in c]
+            ax.bar_label(c, labels=labels, label_type='edge', size='xx-small')
+        ax.margins(y=0.2)
+
+    plt.tight_layout()
+    plt.show()
+    g.fig.savefig(
+        '../stats/graphs/Multiobjective optimization by Allocation Policy.png', bbox_inches='tight', dpi=300)
 
 generate_graphs_exps()
