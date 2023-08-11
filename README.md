@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### 1.1 System Requirements
  - [Python 3.x](https://www.python.org/downloads/)
- - [Java SDK 1.8](https://www.oracle.com/downloads/javase-software-license-agreement.html#license-lightbox)
+ - [Java SDK 1.8](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html) Choose right version according with Operative System.
  - [R 4.x](https://cran.r-project.org/bin/windows/base/)
  - [RTools 4.x](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
  - [Anaconda Distribution](https://www.anaconda.com/products/individual)
