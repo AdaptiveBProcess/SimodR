@@ -86,7 +86,8 @@ The process can be setup in the file config.ini to execute different user prefer
 Besides the modules showed in the previous Architecture image, the project folder have some important folders to take into account.
  - **Config.ini** file. Configuration file for the process.
  - **Main.py** file. Main execution file 
- - **Inputs/**: Folder that contains all the event logs files, the JSON canon model and the BPMN model. 
+ - **Inputs/**: Folder that contains all the event logs files, the JSON canon model and the BPMN model.
+ - **support_modules/**: Folder that contains the file for generating the graphs
  - **Outputs/**: Folder that contains all the outputs folders and files of the execution.
     - If the tool performed an optimization process, a new folder starting with "Optimization", and then a timestamp, will be create. This folder contains the following elements:
         - A graph showing the overall results of the execution (kpiResultsGraph.png)
@@ -105,8 +106,6 @@ Besides the modules showed in the previous Architecture image, the project folde
                 - CSV table showing the instances data for the simulation (.csv file)
                 - CSV table showing the overall process Metadata (.csv file)
                 - CSV table showing the resources utilization. Here is possible to see the utilization per role and instances in each role (.csv file)
-**support_modules/**: Folder that contains the file for generating the graphs            
-    
 
 ## Authors
 
