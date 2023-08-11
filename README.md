@@ -31,6 +31,7 @@ pip install -r requirements.txt
 ```
 
 Change the "rpath" variable in the resourceAllocationOptimizer.py file to the location where R was installed.
+If there is any error during R packages installation check the files support_modules/plot_generation/PostProcessing.R, support_modules/matrix_processing/CooperationPolicy.R and support_modules/matrix_processing/Preprocessing.R. It could change based on Operative System.
 
 Run SimodR with a single optimization function. The configuration parameters are located in config.ini file:
 ```
