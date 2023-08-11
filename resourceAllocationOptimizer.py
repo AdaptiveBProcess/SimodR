@@ -528,7 +528,7 @@ def main_NSGA2(initial_population, max_population, min_population, generations):
     
   df_stats = pd.DataFrame(stats, columns = ['Log', 'Policy', 'Optimization', 'Cost', 'Flow time', 'Waiting', 'Workload'])
   df_g = df_stats.groupby(['Log', 'Policy', 'Optimization'], as_index=True).agg({'Cost' : 'mean', 'Flow time' : 'mean', 'Waiting': 'mean', 'Workload': 'mean'}).reset_index()
-  df_g.to_csv('stats/{}_{}_{}.csv'.format(log, policy, optimization))
+  df_g.to_csv('stats/stats_files/{}_{}_{}.csv'.format(log, policy, optimization))
     
   baseline_path = 'stats/{}_{}.csv'.format(log, 'baseline')
   if not os.path.exists(baseline_path):
