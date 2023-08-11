@@ -1,5 +1,5 @@
 <ns0:definitions xmlns:ns0="http://bsim.hpi.uni-potsdam.de/scylla/simModel" targetNamespace="http://www.hpi.de">
-  <ns0:simulationConfiguration id="qbp_2e9b8897-8892-4862-b974-1e70603fdb0b" processRef="proc_1501587365" processInstances="7" startDateTime="2017-08-14T08:00:00.000Z" resourceAssignmentOrder="priority,simulationTime">
+  <ns0:simulationConfiguration id="qbp_5e8d99ac-69bf-4ae1-b882-021692745d57" processInstances="7" processRef="proc_1501587365" resourceAssignmentOrder="priority,simulationTime" startDateTime="2017-08-14T08:00:00.000Z">
     <ns0:task id="node_5160b785-95a2-477b-b0df-50c5f411d9b0" name="Transferir creditos homologables">
       <ns0:duration timeUnit="SECONDS">
         <ns0:exponentialDistribution>
@@ -7,7 +7,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_46397c1a-2360-4c66-863c-0db545e834a8" name="Validar solicitud / pre-homologacion">
@@ -17,7 +17,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_bccd781a-0288-4278-a28f-18cea1a0fcdb" name="Homologacion por grupo de cursos">
@@ -28,7 +28,7 @@
         </ns0:normalDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_278838d9-9c5f-4de7-9c82-c10c4989440c" name="Evaluacion curso">
@@ -38,7 +38,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_07babaad-b85c-41f7-89f5-99ec288296f9" name="Avanzar recepcion documentos">
@@ -48,7 +48,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_3627039d-d851-4196-8144-6b4d32d5ce25" amount="1" />
+        <ns0:resource amount="1" id="qbp_3627039d-d851-4196-8144-6b4d32d5ce25" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_f1267fa6-5ca7-4a67-94dc-927c3bc31fe5" name="Notificacion estudiante cancelacion soli">
@@ -58,7 +58,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_d66f0ff5-9f06-402e-9702-372404228bfd" name="Validar solicitud">
@@ -69,7 +69,7 @@
         </ns0:normalDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_0f714e59-1d61-46ea-8970-0523a16a8b7d" name="Cancelar Solicitud">
@@ -79,7 +79,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_f26a0898-3cfe-4ca4-abd7-c496edd2dbde" name="Revisar curso">
@@ -89,7 +89,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_45a224fd-e07d-4151-950c-8868ce4bad1b" name="Cancelar curso">
@@ -99,7 +99,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_1f046fdb-c2f9-42a5-9167-7db827db4ad7" name="Recepcion de documentos">
@@ -109,7 +109,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_3627039d-d851-4196-8144-6b4d32d5ce25" amount="1" />
+        <ns0:resource amount="1" id="qbp_3627039d-d851-4196-8144-6b4d32d5ce25" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_a30f6f9d-4a6d-4c8e-99d0-47c44bed0494" name="Transferir Creditos">
@@ -119,7 +119,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_18e35c02-3c44-4ca1-9284-a2b4e7d0d6b6" name="Traer informacion estudiante - banner">
@@ -129,7 +129,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_08136c3c-c65e-42c3-87f1-45e2b1aa4ae3" name="Visto Bueno Cierre Proceso">
@@ -139,7 +139,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_7f1c76e3-ec27-41d1-9bd4-4ba9f0122e70" name="Radicar Solicitud Homologacion">
@@ -150,7 +150,7 @@
         </ns0:normalDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_4976c937-9ecb-476a-ab0d-23541e5ef805" name="Validacion final">
@@ -160,7 +160,7 @@
         </ns0:exponentialDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" amount="1" />
+        <ns0:resource amount="1" id="qbp_ca013b1b-0252-4094-afad-d2dd57579a67" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_10358d8a-1e50-4805-ab5d-e275564b33a1" name="End">
@@ -170,7 +170,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="QBP_DEFAULT_RESOURCE" amount="1" />
+        <ns0:resource amount="1" id="QBP_DEFAULT_RESOURCE" />
       </ns0:resources>
     </ns0:task>
     <ns0:task id="node_79f91572-f751-4969-b02d-96de26ede67a" name="Start">
@@ -180,7 +180,7 @@
         </ns0:constantDistribution>
       </ns0:duration>
       <ns0:resources>
-        <ns0:resource id="QBP_DEFAULT_RESOURCE" amount="1" />
+        <ns0:resource amount="1" id="QBP_DEFAULT_RESOURCE" />
       </ns0:resources>
     </ns0:task>
     <ns0:exclusiveGateway id="node_c3b08e5f-e422-4f7c-af5f-fb807ec23afb">
