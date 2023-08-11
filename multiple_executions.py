@@ -19,7 +19,7 @@ iterations = [{ 'input_log' : 'PurchasingExample', 'time_format' : '%Y-%m-%dT%H:
 def generate_stats(input_log, time_format, ns_include):
 
     optimizer = { 
-            """'preference' : {
+            'preference' : {
                     'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':1, 'cooperation':0},
                     'waiting_time':{'cost':  0, 'workload': 0, 'flow_time':  0, 'waiting_time': -1, 'preference':1, 'cooperation':0},
                     'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':1, 'cooperation':0},
@@ -32,19 +32,19 @@ def generate_stats(input_log, time_format, ns_include):
                     'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':0, 'cooperation':1},
                     'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':0, 'cooperation':1}
                     },
-	        """
              'no policy': {
                     'waiting_time':{'cost':  0, 'workload': 0, 'flow_time':  0, 'waiting_time': -1, 'preference':0, 'cooperation':0},
-                    #'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':0},
-                    #'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':0, 'cooperation':0},
-                    #'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':0, 'cooperation':0}
+                    'cost':{'cost': -1, 'workload': 0, 'flow_time':  0, 'waiting_time':  0, 'preference':0, 'cooperation':0},
+                    'multiobjective':{'cost': -1, 'workload': 0, 'flow_time': -1, 'waiting_time': -1, 'preference':0, 'cooperation':0},
+                    'flow_time':{'cost':  0, 'workload': 0, 'flow_time': -1, 'waiting_time':  0, 'preference':0, 'cooperation':0}
                     }
     }
-    
-    generations = 7
-    initial_population = 5
-    min_population = 5
-    max_population = 20
+
+    # Parameters used to run Paper experiments 
+    generations = 100
+    initial_population = 20
+    min_population = 20
+    max_population = 40000
     
     for policy in optimizer:
         for optimization in optimizer[policy]:
