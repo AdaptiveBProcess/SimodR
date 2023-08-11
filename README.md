@@ -21,18 +21,11 @@ Getting the source code:
 $ git clone [https://github.com/dfbaron/SimodR.git](https://github.com/AdaptiveBProcess/SimodR.git)
 ```
 
-### Execution steps without Anaconda
+### Execution steps with Anaconda
 ```
 conda env create -f SimodR.yml
+conda activate SimodR
 pip install -r requirements.txt
-```
-
-### Execution steps with Anaconda 
-#### Using terminal
-```
-conda env create -f SimodResourcesEnv.yml (For Windows OS)
-conda env create -f SimodResourcesEnvMacOS.yml (For Mac OS Related)
-conda activate SimodResourcesEnv[MacOs]
 ```
 
 ## 2. Execution
