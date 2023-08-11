@@ -18,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 Getting the source code:
 ```
-$ git clone https://github.com/dfbaron/SimodR.git
+$ git clone [https://github.com/dfbaron/SimodR.git](https://github.com/AdaptiveBProcess/SimodR.git)
 ```
 
 ### Execution steps without Anaconda
