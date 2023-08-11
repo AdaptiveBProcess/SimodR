@@ -23,6 +23,7 @@ $ git clone [https://github.com/dfbaron/SimodR.git](https://github.com/AdaptiveB
 
 ### Execution steps without Anaconda
 ```
+conda env create -f SimodR.yml
 pip install -r requirements.txt
 ```
 
